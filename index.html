@@ -3,279 +3,383 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
 
-<title>Pulse Cart Enterprises | Tech Store</title>
+<title>Pulse Cart Enterprises</title>
 
 <style>
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070707;
-  color:#fff;
-  line-height:1.5;
+  font-family:Arial, sans-serif;
+  background:#050505;
+  color:white;
 }
-
-button,
-input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
 
 header{
+  background:#0b0b0b;
+  padding:20px;
+  border-bottom:1px solid #222;
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(5,5,5,.96);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #242424;
+  z-index:10;
 }
 
-.navbar{
-  max-width:1250px;
+.nav{
+  max-width:1200px;
   margin:auto;
-  min-height:70px;
-  padding:0 20px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:15px;
+  align-items:center;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:800;
-  white-space:nowrap;
+  font-size:24px;
+  font-weight:bold;
 }
 
 .logo span{
-  color:#3fa9ff;
+  color:#2196f3;
 }
 
-.nav-links{
-  display:flex;
-  gap:28px;
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
 }
-
-.nav-links a{
-  color:#ccc;
-  font-size:14px;
-}
-
-.nav-links a:hover{
-  color:#3fa9ff;
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.icon-btn{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid #333;
-  background:#111;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
-}
-
-.cart-btn{
-  position:relative;
-}
-
-.cart-count{
-  position:absolute;
-  top:-5px;
-  right:-3px;
-  width:19px;
-  height:19px;
-  background:#3fa9ff;
-  color:#000;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:10px;
-  font-weight:bold;
-}
-
-.menu-btn{
-  display:none;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box{
-  display:none;
-  max-width:1250px;
-  margin:auto;
-  padding:0 20px 15px;
-}
-
-.search-box.show{
-  display:block;
-}
-
-.search-box input{
-  width:100%;
-  padding:14px 16px;
-  background:#111;
-  color:#fff;
-  border:1px solid #333;
-  border-radius:10px;
-  outline:none;
-}
-
-.search-box input:focus{
-  border-color:#3fa9ff;
-}
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
-  max-width:1250px;
-  min-height:650px;
+  max-width:1200px;
   margin:auto;
-  padding:70px 20px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:45px;
+  padding:80px 20px;
+  text-align:center;
 }
 
-.hero-content small{
-  color:#3fa9ff;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-weight:bold;
+.hero h1{
+  font-size:55px;
+  margin-bottom:20px;
 }
 
-.hero-content h1{
-  font-size:clamp(45px,6vw,76px);
-  line-height:1;
-  letter-spacing:-3px;
-  margin:18px 0;
+.hero h1 span{
+  color:#2196f3;
 }
 
-.hero-content h1 span{
-  color:#3fa9ff;
-}
-
-.hero-content p{
+.hero p{
   color:#aaa;
   font-size:18px;
-  max-width:540px;
-  margin-bottom:28px;
+  max-width:600px;
+  margin:0 auto 30px;
 }
 
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.btn{
+.button{
   display:inline-block;
-  padding:13px 21px;
-  border-radius:9px;
-  border:none;
+  background:#2196f3;
+  color:white;
+  padding:15px 25px;
+  border-radius:8px;
+  text-decoration:none;
   font-weight:bold;
 }
 
-.primary{
-  background:#3fa9ff;
-  color:#000;
-}
-
-.secondary{
-  background:#151515;
-  border:1px solid #3a3a3a;
-  color:#fff;
-}
-
-.hero-image{
-  height:460px;
-  border-radius:25px;
-  background:
-    linear-gradient(120deg,rgba(0,0,0,.1),rgba(0,0,0,.35)),
-    url("https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=1100&q=85")
-    center/cover;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
 .section{
-  max-width:1250px;
+  max-width:1200px;
   margin:auto;
-  padding:70px 20px;
+  padding:60px 20px;
 }
 
-.section-title{
+.section h2{
+  font-size:35px;
   margin-bottom:30px;
 }
 
-.section-title h2{
-  font-size:35px;
-  margin-bottom:5px;
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
-.section-title p{
+.product{
+  background:#111;
+  border:1px solid #252525;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.product img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.product-content{
+  padding:18px;
+}
+
+.product h3{
+  margin-bottom:10px;
+}
+
+.price{
+  color:#2196f3;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.product button{
+  width:100%;
+  margin-top:15px;
+  padding:12px;
+  border:0;
+  border-radius:7px;
+  background:#2196f3;
+  color:white;
+  font-weight:bold;
+}
+
+.contact{
+  background:#111;
+  border:1px solid #252525;
+  border-radius:15px;
+  padding:30px;
+}
+
+.contact p{
+  margin:12px 0;
+  color:#ccc;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #222;
   color:#777;
 }
 
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
-.category{
-  min-height:145px;
-  padding:20px;
-  border-radius:17px;
-  border:1px solid #252525;
-  background:#101010;
-  transition:.25s;
-  cursor:pointer;
-}
+@media(max-width:600px){
 
-.category:hover{
-  transform:translateY(-5px);
-  border-color:#3fa9ff;
+  nav{
+    display:none;
+  }
+
+  .hero{
+    padding:60px 20px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product img{
+    height:250px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+Pulse <span>Cart</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<section class="hero" id="home">
+
+<h1>
+Discover <span>Tech.</span>
+</h1>
+
+<p>
+Phones, laptops, gaming devices, headphones,
+smart watches and other technology products.
+</p>
+
+<a class="button" href="#products">
+Shop Products
+</a>
+
+</section>
+
+
+<section class="section" id="products">
+
+<h2>Popular Products</h2>
+
+<div class="products">
+
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<h3>Apple MacBook Pro</h3>
+
+<p class="price">₦1,050,000</p>
+
+<button>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<h3>Tecno Camon 40</h3>
+
+<p class="price">₦319,800</p>
+
+<button>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<h3>PlayStation 5</h3>
+
+<p class="price">₦950,000</p>
+
+<button>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<h3>JBL Headphones</h3>
+
+<p class="price">₦66,300</p>
+
+<button>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<h3>iPhone 13 Pro Max</h3>
+
+<p class="price">₦990,000</p>
+
+<button>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<h3>Apple Watch Series 6</h3>
+
+<p class="price">₦430,800</p>
+
+<button>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="section" id="contact">
+
+<h2>Contact Pulse Cart</h2>
+
+<div class="contact">
+
+<p><strong>Phone:</strong> +234 8097 604 3577</p>
+
+<p><strong>Email:</strong> contact@pulsecart.com</p>
+
+<p>
+<strong>Location:</strong>
+7, Bamanga Tukur Street, Trademore Estate,
+Lugbe, Abuja, FCT, Nigeria
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Pulse Cart Enterprises
+
+</footer>
+
+</body>
+</html>
