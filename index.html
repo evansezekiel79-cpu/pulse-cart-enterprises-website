@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulse Cart Enterprises</title>
+<meta name="theme-color" content="#05070a">
+
+<title>Pulse Cart Enterprises | Tech Store</title>
 
 <style>
 *{
@@ -18,11 +20,13 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#050505;
+  background:#05070a;
   color:#fff;
+  line-height:1.5;
 }
 
-button,input{
+button,
+input{
   font:inherit;
 }
 
@@ -30,27 +34,37 @@ button{
   cursor:pointer;
 }
 
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* HEADER */
+
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#090909;
-  border-bottom:1px solid #252525;
+  background:rgba(5,7,10,.96);
+  border-bottom:1px solid #20252b;
+  backdrop-filter:blur(15px);
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1250px;
+  min-height:72px;
   margin:auto;
-  min-height:70px;
   padding:0 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:20px;
 }
 
 .logo{
-  font-size:23px;
-  font-weight:bold;
+  font-size:24px;
+  font-weight:800;
+  white-space:nowrap;
 }
 
 .logo span{
@@ -59,125 +73,288 @@ header{
 
 nav{
   display:flex;
-  gap:25px;
+  align-items:center;
+  gap:27px;
 }
 
 nav a{
-  color:#ddd;
-  text-decoration:none;
+  color:#bbb;
+  font-size:14px;
+  transition:.2s;
 }
 
 nav a:hover{
   color:#2196f3;
 }
 
-.cart-button{
-  border:1px solid #333;
-  background:#111;
-  color:white;
-  padding:10px 15px;
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-btn{
+  min-height:40px;
+  border:1px solid #30353b;
   border-radius:8px;
+  background:#101318;
+  color:white;
+  padding:8px 12px;
+}
+
+.nav-btn:hover{
+  border-color:#2196f3;
 }
 
 .cart-count{
-  background:#2196f3;
-  color:white;
-  border-radius:50%;
-  padding:3px 7px;
-  font-size:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:20px;
+  height:20px;
+  padding:0 5px;
   margin-left:5px;
+  border-radius:20px;
+  background:#2196f3;
+  color:#fff;
+  font-size:11px;
+  font-weight:bold;
 }
+
+/* HERO */
 
 .hero{
-  max-width:1200px;
+  max-width:1250px;
+  min-height:650px;
   margin:auto;
-  padding:80px 20px;
-  text-align:center;
+  padding:70px 20px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:45px;
+  align-items:center;
 }
 
-.hero small{
-  color:#2196f3;
+.hero-badge{
+  display:inline-flex;
+  padding:8px 13px;
+  border:1px solid #214c70;
+  background:#0b1b2a;
+  color:#5bb5ff;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
   text-transform:uppercase;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
 .hero h1{
-  font-size:clamp(45px,7vw,75px);
-  margin:15px 0;
+  margin:20px 0;
+  font-size:clamp(48px,7vw,82px);
+  line-height:.98;
+  letter-spacing:-4px;
 }
 
 .hero h1 span{
   color:#2196f3;
 }
 
-.hero p{
-  color:#999;
-  max-width:650px;
-  margin:0 auto 30px;
+.hero-text{
+  max-width:580px;
+  color:#9ba1a8;
   font-size:18px;
+  margin-bottom:30px;
 }
 
-.button{
-  display:inline-block;
-  padding:14px 24px;
-  border-radius:8px;
-  background:#2196f3;
-  color:white;
-  text-decoration:none;
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.primary-btn,
+.secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 21px;
+  border-radius:9px;
   font-weight:bold;
 }
 
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:60px 20px;
+.primary-btn{
+  background:#2196f3;
+  color:white;
 }
 
-.section-title{
-  margin-bottom:25px;
+.primary-btn:hover{
+  opacity:.88;
 }
 
-.section-title h2{
-  font-size:35px;
+.secondary-btn{
+  background:#11151a;
+  border:1px solid #333941;
+  color:white;
 }
 
-.section-title p{
+.secondary-btn:hover{
+  border-color:#2196f3;
+}
+
+.hero-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  margin-top:40px;
+}
+
+.stat strong{
+  display:block;
+  font-size:22px;
+}
+
+.stat span{
   color:#777;
-  margin-top:7px;
+  font-size:12px;
+}
+
+.hero-visual{
+  min-height:490px;
+  border-radius:28px;
+  border:1px solid #252b31;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(135deg,rgba(0,0,0,.15),rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
+}
+
+.hero-card{
+  position:absolute;
+  left:25px;
+  right:25px;
+  bottom:25px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  background:rgba(5,7,10,.82);
+  backdrop-filter:blur(12px);
+}
+
+.hero-card small{
+  color:#2196f3;
+}
+
+.hero-card h3{
+  margin-top:5px;
+}
+
+/* GENERAL */
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:75px 20px;
+}
+
+.section-heading{
+  margin-bottom:30px;
+}
+
+.section-heading small{
+  color:#2196f3;
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing:1.5px;
+}
+
+.section-heading h2{
+  font-size:38px;
+  margin:7px 0;
+}
+
+.section-heading p{
+  color:#777;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.category-card{
+  min-height:155px;
+  padding:22px;
+  background:#0e1115;
+  border:1px solid #22282e;
+  border-radius:16px;
+  transition:.25s;
+  cursor:pointer;
+}
+
+.category-card:hover{
+  transform:translateY(-5px);
+  border-color:#2196f3;
+}
+
+.category-icon{
+  font-size:35px;
+  margin-bottom:30px;
+}
+
+.category-card h3{
+  font-size:17px;
+}
+
+.category-card p{
+  color:#777;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* PRODUCTS */
+
+.shop-tools{
+  margin-bottom:30px;
 }
 
 .search{
   width:100%;
-  padding:15px;
-  background:#111;
+  padding:15px 17px;
+  background:#0e1115;
   color:white;
-  border:1px solid #333;
-  border-radius:9px;
+  border:1px solid #2b3137;
+  border-radius:10px;
   outline:none;
-  margin-bottom:25px;
+  margin-bottom:16px;
 }
 
 .search:focus{
   border-color:#2196f3;
 }
 
-.categories{
+.filter-row{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:30px;
+  gap:9px;
 }
 
-.category-btn{
-  padding:10px 18px;
-  border-radius:20px;
-  border:1px solid #333;
-  background:#111;
-  color:white;
+.filter{
+  padding:9px 16px;
+  border-radius:25px;
+  background:#0e1115;
+  color:#ccc;
+  border:1px solid #30353b;
 }
 
-.category-btn:hover{
+.filter:hover,
+.filter.active{
   background:#2196f3;
+  color:white;
+  border-color:#2196f3;
 }
 
 .products{
@@ -187,21 +364,22 @@ nav a:hover{
 }
 
 .product{
-  background:#111;
-  border:1px solid #242424;
-  border-radius:14px;
+  background:#0d1014;
+  border:1px solid #23282e;
+  border-radius:16px;
   overflow:hidden;
-  transition:.2s;
+  transition:.25s;
 }
 
 .product:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
   border-color:#2196f3;
 }
 
 .product-image{
-  height:220px;
-  background:#181818;
+  height:230px;
+  background:#161a1e;
+  overflow:hidden;
 }
 
 .product-image img{
@@ -209,63 +387,205 @@ nav a:hover{
   height:100%;
   object-fit:cover;
   display:block;
+  transition:.3s;
+}
+
+.product:hover .product-image img{
+  transform:scale(1.04);
 }
 
 .product-content{
-  padding:16px;
+  padding:17px;
 }
 
-.category{
+.product-category{
   color:#2196f3;
-  font-size:11px;
-  text-transform:uppercase;
+  font-size:10px;
   font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
 .product h3{
-  font-size:16px;
+  font-size:15px;
   margin:8px 0;
-  min-height:42px;
+  min-height:44px;
 }
 
-.price{
+.product-price{
   font-size:19px;
   font-weight:bold;
-  margin:12px 0;
+  margin:13px 0;
 }
 
-.add{
+.add-btn{
   width:100%;
+  padding:12px;
   border:0;
   border-radius:8px;
-  padding:12px;
   background:#2196f3;
   color:white;
   font-weight:bold;
 }
 
-.add:hover{
-  opacity:.85;
+.add-btn:hover{
+  opacity:.88;
 }
 
+/* FEATURES */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.feature{
+  padding:25px;
+  background:#0e1115;
+  border:1px solid #242a30;
+  border-radius:16px;
+}
+
+.feature-icon{
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.feature h3{
+  margin-bottom:7px;
+}
+
+.feature p{
+  color:#777;
+  font-size:14px;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.about-image{
+  min-height:400px;
+  border-radius:22px;
+  background:
+    linear-gradient(135deg,rgba(0,0,0,.1),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=1100&q=85")
+    center/cover;
+  border:1px solid #252b31;
+}
+
+.about-text h2{
+  font-size:40px;
+  margin-bottom:18px;
+}
+
+.about-text p{
+  color:#999;
+  margin-bottom:15px;
+}
+
+/* CONTACT */
+
 .contact{
-  background:#111;
-  border:1px solid #252525;
-  border-radius:15px;
+  background:#0e1115;
+  border:1px solid #242a30;
+  border-radius:20px;
   padding:30px;
 }
 
-.contact p{
-  margin:14px 0;
-  color:#ccc;
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
 }
 
-footer{
-  border-top:1px solid #222;
-  margin-top:40px;
-  padding:30px 20px;
-  text-align:center;
+.contact-item{
+  padding:17px 0;
+  border-bottom:1px solid #252a2f;
+}
+
+.contact-item span{
+  display:block;
   color:#777;
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+.contact-item strong{
+  font-size:15px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid #20252b;
+  margin-top:30px;
+}
+
+.footer{
+  max-width:1250px;
+  margin:auto;
+  padding:45px 20px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:30px;
+}
+
+.footer p,
+.footer a{
+  color:#777;
+  font-size:14px;
+}
+
+.footer p{
+  max-width:350px;
+  margin-top:12px;
+}
+
+.footer h4{
+  margin-bottom:12px;
+}
+
+.footer a{
+  display:block;
+  margin:8px 0;
+}
+
+.footer a:hover{
+  color:#2196f3;
+}
+
+.copyright{
+  text-align:center;
+  padding:18px;
+  border-top:1px solid #20252b;
+  color:#666;
+  font-size:12px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:57px;
+  height:57px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#25d366;
+  color:white;
+  font-size:25px;
+  z-index:1500;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
 }
 
 /* CART */
@@ -274,7 +594,7 @@ footer{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.75);
+  background:rgba(0,0,0,.78);
   z-index:3000;
 }
 
@@ -284,45 +604,46 @@ footer{
 
 .cart{
   position:absolute;
-  right:0;
   top:0;
-  width:min(430px,95%);
+  right:0;
+  width:min(440px,95%);
   height:100%;
-  background:#101010;
   padding:20px;
+  background:#101318;
   overflow-y:auto;
+  border-left:1px solid #30353b;
 }
 
 .cart-header{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   padding-bottom:20px;
-  border-bottom:1px solid #292929;
+  border-bottom:1px solid #292e34;
 }
 
 .close{
-  border:0;
-  background:#222;
-  color:white;
   width:38px;
   height:38px;
+  border:0;
   border-radius:50%;
-  font-size:20px;
+  background:#22272d;
+  color:white;
+  font-size:22px;
 }
 
 .cart-item{
   display:flex;
   gap:12px;
   padding:15px 0;
-  border-bottom:1px solid #292929;
+  border-bottom:1px solid #292e34;
 }
 
 .cart-item img{
-  width:65px;
-  height:65px;
+  width:68px;
+  height:68px;
   object-fit:cover;
-  border-radius:8px;
+  border-radius:9px;
 }
 
 .cart-info{
@@ -330,41 +651,43 @@ footer{
 }
 
 .cart-info h4{
-  font-size:14px;
+  font-size:13px;
 }
 
 .cart-info p{
   color:#aaa;
-  margin-top:5px;
+  font-size:13px;
+  margin-top:4px;
 }
 
 .quantity{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:7px;
   margin-top:8px;
 }
 
 .quantity button{
-  width:25px;
-  height:25px;
+  width:26px;
+  height:26px;
   border:0;
-  background:#292929;
-  color:white;
   border-radius:5px;
+  background:#292e34;
+  color:white;
 }
 
 .remove{
-  background:none;
-  border:0;
-  color:#ff6666;
-  font-size:12px;
+  background:none !important;
+  border:0 !important;
+  color:#ff6969 !important;
+  width:auto !important;
+  font-size:11px;
 }
 
 .cart-bottom{
-  margin-top:20px;
-  border-top:1px solid #333;
   padding-top:20px;
+  margin-top:20px;
+  border-top:1px solid #33383e;
 }
 
 .total{
@@ -379,35 +702,55 @@ footer{
   width:100%;
   padding:14px;
   border:0;
-  border-radius:8px;
+  border-radius:9px;
   background:#25d366;
   color:white;
   font-weight:bold;
 }
 
 .empty{
+  padding:60px 10px;
   text-align:center;
-  padding:50px 10px;
   color:#777;
 }
 
 /* MOBILE */
 
-@media(max-width:950px){
+@media(max-width:1000px){
 
-  nav{
-    display:none;
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-visual{
+    min-height:400px;
+  }
+
+  .category-grid{
+    grid-template-columns:repeat(3,1fr);
   }
 
   .products{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
 
   .nav{
-    min-height:62px;
+    min-height:64px;
     padding:0 14px;
   }
 
@@ -415,24 +758,56 @@ footer{
     font-size:18px;
   }
 
+  nav{
+    display:none;
+  }
+
+  .nav-btn{
+    padding:8px 9px;
+  }
+
   .hero{
-    padding:60px 20px;
+    padding:55px 15px;
   }
 
   .hero h1{
-    font-size:45px;
+    font-size:48px;
+    letter-spacing:-2px;
   }
 
-  .hero p{
+  .hero-text{
     font-size:15px;
   }
 
-  .section{
-    padding:45px 15px;
+  .hero-visual{
+    min-height:310px;
+    border-radius:18px;
   }
 
-  .section-title h2{
-    font-size:28px;
+  .hero-card{
+    left:15px;
+    right:15px;
+    bottom:15px;
+  }
+
+  .hero-stats{
+    gap:18px;
+  }
+
+  .section{
+    padding:55px 15px;
+  }
+
+  .section-heading h2{
+    font-size:29px;
+  }
+
+  .category-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .category-card{
+    min-height:135px;
   }
 
   .products{
@@ -452,12 +827,28 @@ footer{
     font-size:13px;
   }
 
-  .price{
+  .product-price{
     font-size:15px;
   }
 
-  .cart-button{
-    padding:8px 10px;
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-image{
+    min-height:280px;
+  }
+
+  .about-text h2{
+    font-size:30px;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -469,146 +860,596 @@ footer{
 
 <div class="nav">
 
-<div class="logo">
+<a href="#home" class="logo">
 Pulse <span>Cart</span>
-</div>
+</a>
 
 <nav>
 <a href="#home">Home</a>
+<a href="#categories">Categories</a>
 <a href="#products">Shop</a>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<button class="cart-button" onclick="openCart()">
+<div class="nav-actions">
+
+<button class="nav-btn" onclick="openCart()">
 🛒 Cart
 <span class="cart-count" id="cartCount">0</span>
 </button>
 
 </div>
 
+</div>
+
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero" id="home">
 
-<small>Pulse Cart Enterprises</small>
+<div>
+
+<div class="hero-badge">
+Pulse Cart Enterprises
+</div>
 
 <h1>
 Discover <span>Tech.</span>
 </h1>
 
-<p>
-Phones, laptops, gaming devices, headphones,
-smart watches and other technology products.
+<p class="hero-text">
+Explore phones, laptops, gaming devices, headphones,
+smart watches and other technology products from
+Pulse Cart Enterprises.
 </p>
 
-<a href="#products" class="button">
+<div class="hero-buttons">
+
+<a href="#products" class="primary-btn">
 Shop Products
 </a>
+
+<a
+href="https://wa.me/23480976043577?text=Hello%20Pulse%20Cart%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+target="_blank"
+class="secondary-btn"
+>
+WhatsApp Us
+</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div class="stat">
+<strong>16+</strong>
+<span>Products</span>
+</div>
+
+<div class="stat">
+<strong>5</strong>
+<span>Categories</span>
+</div>
+
+<div class="stat">
+<strong>Abuja</strong>
+<span>Based</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-visual">
+
+<div class="hero-card">
+
+<small>FEATURED TECH</small>
+
+<h3>
+Technology for everyday life.
+</h3>
+
+</div>
+
+</div>
 
 </section>
 
 
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+<div class="section-heading">
+
+<small>Explore</small>
+
+<h2>Shop by Category</h2>
+
+<p>
+Find the type of technology you're looking for.
+</p>
+
+</div>
+
+
+<div class="category-grid">
+
+<div
+class="category-card"
+onclick="filterCategory('Phones')"
+>
+
+<div class="category-icon">📱</div>
+
+<h3>Phones</h3>
+
+<p>Smartphones</p>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Laptops')"
+>
+
+<div class="category-icon">💻</div>
+
+<h3>Laptops</h3>
+
+<p>Computers</p>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Gaming')"
+>
+
+<div class="category-icon">🎮</div>
+
+<h3>Gaming</h3>
+
+<p>Gaming products</p>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Audio')"
+>
+
+<div class="category-icon">🎧</div>
+
+<h3>Audio</h3>
+
+<p>Headphones</p>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="filterCategory('Accessories')"
+>
+
+<div class="category-icon">⌚</div>
+
+<h3>Accessories</h3>
+
+<p>Smart accessories</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
 <section class="section" id="products">
 
-<div class="section-title">
-<h2>Our Products</h2>
-<p>Explore products available from Pulse Cart.</p>
+<div class="section-heading">
+
+<small>Store</small>
+
+<h2>Popular Products</h2>
+
+<p>
+Explore products currently displayed by Pulse Cart.
+</p>
+
 </div>
+
+
+<div class="shop-tools">
 
 <input
 class="search"
 id="search"
 type="search"
-placeholder="Search for a product..."
+placeholder="Search phones, laptops, headphones..."
 oninput="searchProducts()"
 >
 
 
-<div class="categories">
+<div class="filter-row">
 
-<button class="category-btn" onclick="filterCategory('All')">
+<button
+class="filter active"
+onclick="filterCategory('All')"
+>
 All
 </button>
 
-<button class="category-btn" onclick="filterCategory('Phones')">
+<button
+class="filter"
+onclick="filterCategory('Phones')"
+>
 Phones
 </button>
 
-<button class="category-btn" onclick="filterCategory('Laptops')">
+<button
+class="filter"
+onclick="filterCategory('Laptops')"
+>
 Laptops
 </button>
 
-<button class="category-btn" onclick="filterCategory('Gaming')">
+<button
+class="filter"
+onclick="filterCategory('Gaming')"
+>
 Gaming
 </button>
 
-<button class="category-btn" onclick="filterCategory('Audio')">
+<button
+class="filter"
+onclick="filterCategory('Audio')"
+>
 Audio
 </button>
 
-<button class="category-btn" onclick="filterCategory('Accessories')">
+<button
+class="filter"
+onclick="filterCategory('Accessories')"
+>
 Accessories
 </button>
 
 </div>
 
+</div>
 
-<div class="products" id="productsGrid"></div>
+
+<div
+class="products"
+id="productsGrid"
+></div>
 
 </section>
 
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<div class="section-heading">
+
+<small>Pulse Cart</small>
+
+<h2>Why Shop With Us?</h2>
+
+<p>
+Simple ways to discover and order technology.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<div class="feature-icon">✓</div>
+
+<h3>Quality Products</h3>
+
+<p>
+Explore phones, computers, gaming products,
+audio devices and accessories.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🛒</div>
+
+<h3>Easy Ordering</h3>
+
+<p>
+Add products to your cart and prepare your
+order in one place.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">💬</div>
+
+<h3>WhatsApp Support</h3>
+
+<p>
+Contact Pulse Cart directly through WhatsApp
+about your order.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">📍</div>
+
+<h3>Abuja Based</h3>
+
+<p>
+Pulse Cart Enterprises is based in Abuja,
+Federal Capital Territory.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="about">
+
+<div class="about-image"></div>
+
+
+<div class="about-text">
+
+<div class="section-heading">
+
+<small>About Us</small>
+
+<h2>About Pulse Cart</h2>
+
+</div>
+
+<p>
+Pulse Cart Enterprises is an e-commerce store
+based in Abuja, Nigeria.
+</p>
+
+<p>
+The business offers technology products including
+phones, laptops, gaming products, audio devices
+and accessories.
+</p>
+
+<a href="#contact" class="primary-btn">
+Contact Pulse Cart
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
 
 <section class="section" id="contact">
 
-<div class="section-title">
+<div class="section-heading">
+
+<small>Get In Touch</small>
+
 <h2>Contact Pulse Cart</h2>
-<p>Get in touch with the business.</p>
+
+<p>
+Have a question about a product or order?
+Contact the business.
+</p>
+
 </div>
+
 
 <div class="contact">
 
-<p>
-<strong>Phone / WhatsApp:</strong>
+<div class="contact-grid">
+
+<div>
+
+<div class="contact-item">
+
+<span>Phone / WhatsApp</span>
+
+<strong>
 +234 8097 604 3577
-</p>
+</strong>
 
-<p>
-<strong>Email:</strong>
+</div>
+
+
+<div class="contact-item">
+
+<span>Email</span>
+
+<strong>
 contact@pulsecart.com
-</p>
+</strong>
 
-<p>
-<strong>Location:</strong>
+</div>
+
+</div>
+
+
+<div>
+
+<div class="contact-item">
+
+<span>Business</span>
+
+<strong>
+Pulse Cart Enterprises
+</strong>
+
+</div>
+
+
+<div class="contact-item">
+
+<span>Location</span>
+
+<strong>
 7, Bamanga Tukur Street, Trademore Estate,
 Lugbe, Abuja, FCT, Nigeria
-</p>
+</strong>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-© 2026 Pulse Cart Enterprises
+<div class="footer">
+
+<div>
+
+<div class="logo">
+Pulse <span>Cart</span>
+</div>
+
+<p>
+Tech gadgets, phones, laptops, gaming products,
+audio devices and accessories.
+</p>
+
+</div>
+
+
+<div>
+
+<h4>Shop</h4>
+
+<a href="#products">Products</a>
+
+<a href="#categories">Categories</a>
+
+</div>
+
+
+<div>
+
+<h4>Company</h4>
+
+<a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+
+<div>
+
+<h4>Support</h4>
+
+<a href="#contact">Contact Us</a>
+
+<a
+href="https://wa.me/23480976043577"
+target="_blank"
+>
+WhatsApp
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Pulse Cart Enterprises. All rights reserved.
+
+</div>
 
 </footer>
 
 
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()">
+<!-- WHATSAPP -->
 
-<div class="cart" onclick="event.stopPropagation()">
+<a
+class="whatsapp"
+href="https://wa.me/23480976043577?text=Hello%20Pulse%20Cart%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+target="_blank"
+aria-label="WhatsApp"
+>
+☎
+</a>
+
+
+<!-- CART -->
+
+<div
+class="cart-overlay"
+id="cartOverlay"
+onclick="closeCart()"
+>
+
+<div
+class="cart"
+onclick="event.stopPropagation()"
+>
 
 <div class="cart-header">
 
 <h2>Your Cart</h2>
 
-<button class="close" onclick="closeCart()">×</button>
+<button
+class="close"
+onclick="closeCart()"
+>
+×
+</button>
 
 </div>
 
+
 <div id="cartItems"></div>
+
 
 <div class="cart-bottom">
 
@@ -622,7 +1463,11 @@ Lugbe, Abuja, FCT, Nigeria
 
 </div>
 
-<button class="checkout" onclick="checkout()">
+
+<button
+class="checkout"
+onclick="checkout()"
+>
 Order on WhatsApp
 </button>
 
@@ -635,7 +1480,7 @@ Order on WhatsApp
 
 <script>
 
-const products = [
+const products=[
 
 {
 id:1,
@@ -714,382 +1559,4 @@ id:10,
 name:"JBL Tune 520BT Wireless Headphones",
 price:66300,
 category:"Audio",
-image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85"
-},
-
-{
-id:11,
-name:"iPhone 13 Pro Max 256GB",
-price:990000,
-category:"Phones",
-image:"https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=85"
-},
-
-{
-id:12,
-name:"Apple MacBook Pro 2023 14-inch",
-price:1500000,
-category:"Laptops",
-image:"https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=1200&q=85"
-},
-
-{
-id:13,
-name:"iPhone 14",
-price:1000000,
-category:"Phones",
-image:"https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=800&q=85"
-},
-
-{
-id:14,
-name:"iPhone 15 Pro Max",
-price:1500000,
-category:"Phones",
-image:"https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=85"
-},
-
-{
-id:15,
-name:"Samsung Galaxy Flip 6 12GB + 512GB",
-price:1900000,
-category:"Phones",
-image:"https://images.unsplash.com/photo-1657611932412-9c9b1c8c7f57?auto=format&fit=crop&w=800&q=85"
-},
-
-{
-id:16,
-name:"Samsung Galaxy S24 8GB + 128GB",
-price:1290000,
-category:"Phones",
-image:"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=800&q=85"
-}
-
-];
-
-
-let cart=[];
-
-
-function money(amount){
-
-return "₦"+Number(amount).toLocaleString("en-NG",{
-minimumFractionDigits:Number(amount)%1 ? 2 : 0,
-maximumFractionDigits:2
-});
-
-}
-
-
-function displayProducts(list=products){
-
-const grid=document.getElementById("productsGrid");
-
-grid.innerHTML="";
-
-if(list.length===0){
-
-grid.innerHTML="<p>No products found.</p>";
-
-return;
-
-}
-
-list.forEach(product=>{
-
-grid.innerHTML += `
-
-<div class="product">
-
-<div class="product-image">
-
-<img
-src="${product.image}"
-alt="${product.name}"
-onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85';"
->
-
-</div>
-
-<div class="product-content">
-
-<div class="category">
-${product.category}
-</div>
-
-<h3>
-${product.name}
-</h3>
-
-<div class="price">
-${money(product.price)}
-</div>
-
-<button
-class="add"
-onclick="addToCart(${product.id})"
->
-Add to Cart
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-function addToCart(id){
-
-const product=products.find(p=>p.id===id);
-
-if(!product)return;
-
-const existing=cart.find(p=>p.id===id);
-
-if(existing){
-
-existing.quantity++;
-
-}else{
-
-cart.push({
-...product,
-quantity:1
-});
-
-}
-
-updateCart();
-
-openCart();
-
-}
-
-
-function updateCart(){
-
-const container=document.getElementById("cartItems");
-
-let total=0;
-let count=0;
-
-if(cart.length===0){
-
-container.innerHTML=`
-<div class="empty">
-Your cart is empty.
-</div>
-`;
-
-}else{
-
-container.innerHTML="";
-
-cart.forEach(item=>{
-
-total += item.price * item.quantity;
-count += item.quantity;
-
-container.innerHTML += `
-
-<div class="cart-item">
-
-<img
-src="${item.image}"
-alt="${item.name}"
->
-
-<div class="cart-info">
-
-<h4>
-${item.name}
-</h4>
-
-<p>
-${money(item.price)}
-</p>
-
-<div class="quantity">
-
-<button onclick="changeQuantity(${item.id},-1)">
-−
-</button>
-
-<span>
-${item.quantity}
-</span>
-
-<button onclick="changeQuantity(${item.id},1)">
-+
-</button>
-
-<button
-class="remove"
-onclick="removeItem(${item.id})"
->
-Remove
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-}
-
-document.getElementById("cartCount").textContent=count;
-
-document.getElementById("cartTotal").textContent=money(total);
-
-}
-
-
-function changeQuantity(id,change){
-
-const item=cart.find(p=>p.id===id);
-
-if(!item)return;
-
-item.quantity += change;
-
-if(item.quantity<=0){
-
-cart=cart.filter(p=>p.id!==id);
-
-}
-
-updateCart();
-
-}
-
-
-function removeItem(id){
-
-cart=cart.filter(p=>p.id!==id);
-
-updateCart();
-
-}
-
-
-function openCart(){
-
-document.getElementById("cartOverlay").classList.add("open");
-
-}
-
-
-function closeCart(){
-
-document.getElementById("cartOverlay").classList.remove("open");
-
-}
-
-
-function searchProducts(){
-
-const search=document
-.getElementById("search")
-.value
-.toLowerCase()
-.trim();
-
-const filtered=products.filter(product=>
-
-product.name.toLowerCase().includes(search) ||
-
-product.category.toLowerCase().includes(search)
-
-);
-
-displayProducts(filtered);
-
-}
-
-
-function filterCategory(category){
-
-if(category==="All"){
-
-displayProducts(products);
-
-return;
-
-}
-
-const filtered=products.filter(product=>
-
-product.category===category
-
-);
-
-displayProducts(filtered);
-
-}
-
-
-function checkout(){
-
-if(cart.length===0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-let message=
-"Hello Pulse Cart,\n\n"+
-"I would like to order the following:\n\n";
-
-let total=0;
-
-cart.forEach((item,index)=>{
-
-const itemTotal=item.price*item.quantity;
-
-total+=itemTotal;
-
-message +=
-(index+1)+". "+
-item.name+
-"\nQuantity: "+
-item.quantity+
-"\nPrice: "+
-money(itemTotal)+
-"\n\n";
-
-});
-
-message +=
-"Total: "+
-money(total)+
-"\n\nPlease confirm availability and delivery details.";
-
-const whatsapp=
-"https://wa.me/23480976043577?text="+
-encodeURIComponent(message);
-
-window.open(whatsapp,"_blank");
-
-}
-
-
-displayProducts();
-
-updateCart();
-
-</script>
-
-</body>
-</html>
+imag
