@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
-<title>Pulse Cart Enterprises | Premium Tech Store</title>
+<meta name="theme-color" content="#050505">
+
+<title>Pulse Cart Enterprises | Tech Store</title>
 
 <style>
 *{
@@ -19,7 +20,7 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#080808;
+  background:#070707;
   color:#fff;
   line-height:1.5;
 }
@@ -34,16 +35,19 @@ button{
 }
 
 a{
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(8,8,8,.94);
+  background:rgba(5,5,5,.96);
   backdrop-filter:blur(15px);
   border-bottom:1px solid #242424;
 }
@@ -51,7 +55,7 @@ header{
 .navbar{
   max-width:1250px;
   margin:auto;
-  height:72px;
+  min-height:70px;
   padding:0 20px;
   display:flex;
   align-items:center;
@@ -61,78 +65,107 @@ header{
 
 .logo{
   font-size:22px;
-  font-weight:700;
+  font-weight:800;
   white-space:nowrap;
 }
 
 .logo span{
-  color:#4da3ff;
+  color:#3fa9ff;
 }
 
 .nav-links{
   display:flex;
   gap:28px;
-  align-items:center;
 }
 
 .nav-links a{
-  color:#ddd;
+  color:#ccc;
   font-size:14px;
-  transition:.2s;
 }
 
 .nav-links a:hover{
-  color:#4da3ff;
+  color:#3fa9ff;
 }
 
 .nav-actions{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
 }
 
-.search-button,
-.cart-button,
-.menu-button{
-  border:1px solid #333;
-  background:#111;
-  color:#fff;
+.icon-btn{
   width:42px;
   height:42px;
   border-radius:50%;
+  border:1px solid #333;
+  background:#111;
+  color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:18px;
 }
 
-.cart-button{
+.cart-btn{
   position:relative;
 }
 
 .cart-count{
   position:absolute;
-  top:-4px;
+  top:-5px;
   right:-3px;
-  background:#4da3ff;
-  color:#000;
   width:19px;
   height:19px;
+  background:#3fa9ff;
+  color:#000;
   border-radius:50%;
-  font-size:11px;
-  font-weight:bold;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
+  font-size:10px;
+  font-weight:bold;
 }
 
-.menu-button{
+.menu-btn{
   display:none;
 }
 
-/* HERO */
-.hero{
-  min-height:650px;
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+  display:none;
   max-width:1250px;
+  margin:auto;
+  padding:0 20px 15px;
+}
+
+.search-box.show{
+  display:block;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px 16px;
+  background:#111;
+  color:#fff;
+  border:1px solid #333;
+  border-radius:10px;
+  outline:none;
+}
+
+.search-box input:focus{
+  border-color:#3fa9ff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1250px;
+  min-height:650px;
   margin:auto;
   padding:70px 20px;
   display:grid;
@@ -141,106 +174,91 @@ header{
   gap:45px;
 }
 
-.hero-text small{
-  color:#4da3ff;
-  font-weight:bold;
-  letter-spacing:2px;
+.hero-content small{
+  color:#3fa9ff;
   text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
-.hero-text h1{
-  font-size:clamp(45px,6vw,78px);
+.hero-content h1{
+  font-size:clamp(45px,6vw,76px);
   line-height:1;
-  margin:18px 0;
   letter-spacing:-3px;
+  margin:18px 0;
 }
 
-.hero-text h1 span{
-  color:#4da3ff;
+.hero-content h1 span{
+  color:#3fa9ff;
 }
 
-.hero-text p{
-  max-width:550px;
+.hero-content p{
   color:#aaa;
   font-size:18px;
-  margin-bottom:30px;
+  max-width:540px;
+  margin-bottom:28px;
 }
 
 .hero-buttons{
   display:flex;
-  gap:12px;
   flex-wrap:wrap;
+  gap:10px;
 }
 
 .btn{
-  border:none;
-  border-radius:10px;
-  padding:14px 22px;
-  font-weight:bold;
-  transition:.2s;
   display:inline-block;
+  padding:13px 21px;
+  border-radius:9px;
+  border:none;
+  font-weight:bold;
 }
 
-.btn-primary{
-  background:#4da3ff;
+.primary{
+  background:#3fa9ff;
   color:#000;
 }
 
-.btn-primary:hover{
-  transform:translateY(-2px);
-}
-
-.btn-outline{
-  background:transparent;
-  border:1px solid #444;
+.secondary{
+  background:#151515;
+  border:1px solid #3a3a3a;
   color:#fff;
 }
 
-.btn-outline:hover{
-  border-color:#4da3ff;
-}
-
 .hero-image{
-  min-height:430px;
+  height:460px;
   border-radius:25px;
-  overflow:hidden;
   background:
-    linear-gradient(135deg,rgba(77,163,255,.12),rgba(0,0,0,.5)),
-    url("https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=1000&q=85")
+    linear-gradient(120deg,rgba(0,0,0,.1),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=1100&q=85")
     center/cover;
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
-  position:relative;
 }
 
-.hero-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.5),transparent 50%);
-}
+/* =========================
+   SECTIONS
+========================= */
 
-/* CATEGORIES */
 .section{
   max-width:1250px;
   margin:auto;
-  padding:75px 20px;
+  padding:70px 20px;
 }
 
-.section-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
+.section-title{
   margin-bottom:30px;
-  gap:20px;
 }
 
-.section-heading h2{
-  font-size:36px;
+.section-title h2{
+  font-size:35px;
+  margin-bottom:5px;
 }
 
-.section-heading p{
-  color:#888;
+.section-title p{
+  color:#777;
 }
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
   display:grid;
@@ -250,951 +268,14 @@ header{
 
 .category{
   min-height:145px;
-  padding:22px;
+  padding:20px;
+  border-radius:17px;
   border:1px solid #252525;
   background:#101010;
-  border-radius:18px;
-  display:flex;
-  flex-direction:column;
-  justify-content:end;
   transition:.25s;
+  cursor:pointer;
 }
 
 .category:hover{
   transform:translateY(-5px);
-  border-color:#4da3ff;
-}
-
-.category-icon{
-  font-size:35px;
-  margin-bottom:auto;
-}
-
-.category h3{
-  font-size:16px;
-}
-
-.category p{
-  color:#777;
-  font-size:12px;
-}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.product{
-  background:#101010;
-  border:1px solid #242424;
-  border-radius:18px;
-  overflow:hidden;
-  transition:.25s;
-}
-
-.product:hover{
-  transform:translateY(-5px);
-  border-color:#3c6f9f;
-}
-
-.product-image{
-  height:230px;
-  background:#171717;
-  overflow:hidden;
-}
-
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.4s;
-}
-
-.product:hover .product-image img{
-  transform:scale(1.05);
-}
-
-.product-info{
-  padding:17px;
-}
-
-.product-category{
-  color:#4da3ff;
-  font-size:11px;
-  text-transform:uppercase;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
-.product h3{
-  font-size:17px;
-  margin:7px 0;
-}
-
-.stars{
-  color:#ffc107;
-  font-size:13px;
-}
-
-.price{
-  font-size:20px;
-  font-weight:bold;
-  margin:10px 0 15px;
-}
-
-.product-actions{
-  display:flex;
-  gap:8px;
-}
-
-.product-actions button{
-  flex:1;
-  padding:10px 7px;
-  border-radius:8px;
-  border:1px solid #333;
-  background:#181818;
-  color:#fff;
-  font-size:12px;
-}
-
-.product-actions button:first-child{
-  background:#4da3ff;
-  color:#000;
-  border-color:#4da3ff;
-  font-weight:bold;
-}
-
-/* SEARCH */
-.search-area{
-  display:none;
-  max-width:1250px;
-  margin:auto;
-  padding:0 20px 20px;
-}
-
-.search-area.active{
-  display:block;
-}
-
-.search-area input{
-  width:100%;
-  background:#111;
-  border:1px solid #333;
-  border-radius:12px;
-  padding:15px;
-  color:#fff;
-  outline:none;
-}
-
-.search-area input:focus{
-  border-color:#4da3ff;
-}
-
-/* WHY US */
-.features{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.feature{
-  background:#101010;
-  border:1px solid #242424;
-  border-radius:18px;
-  padding:25px;
-}
-
-.feature-icon{
-  font-size:30px;
-  margin-bottom:15px;
-}
-
-.feature h3{
-  margin-bottom:7px;
-}
-
-.feature p{
-  color:#888;
-  font-size:14px;
-}
-
-/* BANNER */
-.banner{
-  max-width:1210px;
-  margin:30px auto 70px;
-  padding:45px 30px;
-  border-radius:24px;
-  background:
-    linear-gradient(100deg,rgba(77,163,255,.25),rgba(0,0,0,.85)),
-    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85")
-    center/cover;
-}
-
-.banner h2{
-  font-size:38px;
-  max-width:600px;
-}
-
-.banner p{
-  color:#ccc;
-  margin:10px 0 22px;
-}
-
-/* ABOUT */
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-
-.about-image{
-  height:390px;
-  border-radius:22px;
-  background:
-    url("https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=1000&q=85")
-    center/cover;
-}
-
-.about-text h2{
-  font-size:38px;
-  margin-bottom:18px;
-}
-
-.about-text p{
-  color:#999;
-  margin-bottom:15px;
-}
-
-/* CONTACT */
-.contact-box{
-  background:#101010;
-  border:1px solid #252525;
-  border-radius:22px;
-  padding:35px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
-
-.contact-item{
-  padding:20px 0;
-  border-bottom:1px solid #252525;
-}
-
-.contact-item span{
-  display:block;
-  color:#777;
-  font-size:13px;
-  margin-bottom:4px;
-}
-
-.contact-item strong{
-  font-size:17px;
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid #222;
-  margin-top:30px;
-}
-
-.footer-inner{
-  max-width:1250px;
-  margin:auto;
-  padding:45px 20px;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:35px;
-}
-
-.footer-brand p{
-  color:#777;
-  max-width:350px;
-  margin-top:12px;
-}
-
-.footer-column h4{
-  margin-bottom:15px;
-}
-
-.footer-column a{
-  display:block;
-  color:#777;
-  font-size:14px;
-  margin:9px 0;
-}
-
-.footer-column a:hover{
-  color:#4da3ff;
-}
-
-.copyright{
-  border-top:1px solid #222;
-  padding:18px 20px;
-  text-align:center;
-  color:#666;
-  font-size:12px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:900;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:#25D366;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  box-shadow:0 8px 30px rgba(0,0,0,.4);
-}
-
-/* CART DRAWER */
-.cart-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  z-index:2000;
-  display:none;
-}
-
-.cart-overlay.active{
-  display:block;
-}
-
-.cart-drawer{
-  position:absolute;
-  right:0;
-  top:0;
-  height:100%;
-  width:min(400px,92%);
-  background:#111;
-  border-left:1px solid #333;
-  padding:22px;
-  overflow:auto;
-}
-
-.cart-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding-bottom:20px;
-  border-bottom:1px solid #292929;
-}
-
-.close-cart{
-  background:#222;
-  border:0;
-  color:#fff;
-  width:36px;
-  height:36px;
-  border-radius:50%;
-}
-
-.cart-items{
-  padding:20px 0;
-}
-
-.empty-cart{
-  text-align:center;
-  color:#777;
-  padding:50px 0;
-}
-
-.cart-item{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid #292929;
-}
-
-.cart-item img{
-  width:65px;
-  height:65px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-.cart-item-info{
-  flex:1;
-}
-
-.cart-item-info h4{
-  font-size:14px;
-}
-
-.cart-item-info p{
-  color:#aaa;
-  font-size:13px;
-}
-
-.remove-item{
-  background:none;
-  border:0;
-  color:#ff6666;
-}
-
-.cart-total{
-  border-top:1px solid #333;
-  padding-top:20px;
-  display:flex;
-  justify-content:space-between;
-  font-size:19px;
-  font-weight:bold;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  .nav-links{
-    display:none;
-  }
-
-  .menu-button{
-    display:flex;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:45px;
-  }
-
-  .hero-image{
-    min-height:350px;
-    order:-1;
-  }
-
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .features{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .about{
-    grid-template-columns:1fr;
-  }
-
-  .contact-box{
-    grid-template-columns:1fr;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:560px){
-  .navbar{
-    height:64px;
-    padding:0 14px;
-  }
-
-  .logo{
-    font-size:17px;
-  }
-
-  .search-button,
-  .cart-button,
-  .menu-button{
-    width:38px;
-    height:38px;
-  }
-
-  .hero{
-    padding:30px 15px 60px;
-  }
-
-  .hero-image{
-    min-height:270px;
-    border-radius:18px;
-  }
-
-  .hero-text h1{
-    font-size:48px;
-    letter-spacing:-2px;
-  }
-
-  .hero-text p{
-    font-size:15px;
-  }
-
-  .section{
-    padding:55px 15px;
-  }
-
-  .section-heading{
-    display:block;
-  }
-
-  .section-heading h2{
-    font-size:29px;
-    margin-bottom:7px;
-  }
-
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .category{
-    min-height:125px;
-    padding:17px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .product-image{
-    height:155px;
-  }
-
-  .product-info{
-    padding:12px;
-  }
-
-  .product h3{
-    font-size:14px;
-  }
-
-  .price{
-    font-size:16px;
-  }
-
-  .product-actions{
-    flex-direction:column;
-  }
-
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .banner{
-    margin:15px 15px 55px;
-    padding:35px 22px;
-  }
-
-  .banner h2{
-    font-size:30px;
-  }
-
-  .about-image{
-    height:280px;
-  }
-
-  .about-text h2{
-    font-size:30px;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <nav class="navbar">
-
-    <a href="#" class="logo">
-      Pulse <span>Cart</span>
-    </a>
-
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#products">Shop</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div class="nav-actions">
-      <button class="search-button" onclick="toggleSearch()">⌕</button>
-
-      <button class="cart-button" onclick="openCart()">
-        🛒
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-
-      <button class="menu-button" onclick="toggleMenu()">☰</button>
-    </div>
-
-  </nav>
-
-  <div class="search-area" id="searchArea">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search phones, laptops, accessories..."
-      oninput="searchProducts()"
-    >
-  </div>
-</header>
-
-
-<main>
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-  <div class="hero-text">
-
-    <small>Premium Tech Store</small>
-
-    <h1>
-      Upgrade Your
-      <span>Tech Life.</span>
-    </h1>
-
-    <p>
-      Discover phones, laptops, gaming gear, audio devices
-      and everyday tech accessories selected for you.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#products" class="btn btn-primary">
-        Shop Now →
-      </a>
-
-      <a
-        href="https://wa.me/2340000000000?text=Hello%20Pulse%20Cart%2C%20I%20want%20to%20make%20an%20inquiry."
-        class="btn btn-outline"
-        target="_blank"
-      >
-        WhatsApp Us
-      </a>
-    </div>
-
-  </div>
-
-  <div class="hero-image"></div>
-
-</section>
-
-
-<!-- CATEGORIES -->
-<section class="section" id="categories">
-
-  <div class="section-heading">
-    <div>
-      <h2>Shop by Category</h2>
-      <p>Find the tech you need.</p>
-    </div>
-  </div>
-
-  <div class="categories">
-
-    <div class="category" onclick="filterCategory('Phones')">
-      <div class="category-icon">📱</div>
-      <h3>Phones</h3>
-      <p>Smartphones & devices</p>
-    </div>
-
-    <div class="category" onclick="filterCategory('Laptops')">
-      <div class="category-icon">💻</div>
-      <h3>Laptops</h3>
-      <p>Work & entertainment</p>
-    </div>
-
-    <div class="category" onclick="filterCategory('Gaming')">
-      <div class="category-icon">🎮</div>
-      <h3>Gaming</h3>
-      <p>Level up your setup</p>
-    </div>
-
-    <div class="category" onclick="filterCategory('Audio')">
-      <div class="category-icon">🎧</div>
-      <h3>Audio</h3>
-      <p>Headphones & speakers</p>
-    </div>
-
-    <div class="category" onclick="filterCategory('Accessories')">
-      <div class="category-icon">🔌</div>
-      <h3>Accessories</h3>
-      <p>Everyday essentials</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-<section class="section" id="products">
-
-  <div class="section-heading">
-    <div>
-      <h2>Featured Products</h2>
-      <p>Popular tech picks.</p>
-    </div>
-
-    <button
-      class="btn btn-outline"
-      onclick="showAllProducts()"
-    >
-      View All
-    </button>
-  </div>
-
-  <div class="products" id="productGrid">
-
-    <!-- PRODUCT 1 -->
-    <article class="product" data-category="Audio">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=80"
-          alt="Wireless earbuds"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Audio</div>
-
-        <h3>Premium Wireless Earbuds</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦45,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Premium Wireless Earbuds',45000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Premium Wireless Earbuds',45000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 2 -->
-    <article class="product" data-category="Laptops">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80"
-          alt="Laptop"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Laptops</div>
-
-        <h3>Modern Performance Laptop</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦650,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Modern Performance Laptop',650000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Modern Performance Laptop',650000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 3 -->
-    <article class="product" data-category="Phones">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80"
-          alt="Smartphone"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Phones</div>
-
-        <h3>Premium Smartphone</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦420,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Premium Smartphone',420000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Premium Smartphone',420000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 4 -->
-    <article class="product" data-category="Gaming">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=700&q=80"
-          alt="Gaming controller"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Gaming</div>
-
-        <h3>Wireless Gaming Controller</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦75,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Wireless Gaming Controller',75000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Wireless Gaming Controller',75000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 5 -->
-    <article class="product" data-category="Accessories">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=700&q=80"
-          alt="Phone accessories"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Accessories</div>
-
-        <h3>Fast Charging Power Bank</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦35,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Fast Charging Power Bank',35000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Fast Charging Power Bank',35000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 6 -->
-    <article class="product" data-category="Audio">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80"
-          alt="Headphones"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Audio</div>
-
-        <h3>Wireless Headphones</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦85,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Wireless Headphones',85000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Wireless Headphones',85000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 7 -->
-    <article class="product" data-category="Accessories">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-1609592424815-88a8b5f8a1f1?auto=format&fit=crop&w=700&q=80"
-          alt="Smart watch"
-        >
-      </div>
-
-      <div class="product-info">
-
-        <div class="product-category">Accessories</div>
-
-        <h3>Smart Watch</h3>
-
-        <div class="stars">★★★★★</div>
-
-        <div class="price">₦60,000</div>
-
-        <div class="product-actions">
-          <button onclick="addToCart('Smart Watch',60000,this)">
-            Add to Cart
-          </button>
-
-          <button onclick="orderProduct('Smart Watch',60000)">
-            WhatsApp
-          </button>
-        </div>
-
-      </div>
-    </article>
-
-
-    <!-- PRODUCT 8 -->
-    <article class="product" data-category="Gaming">
-
-      <div class="product-image">
-        <img
-          src="https://images.unsplash.com/photo-159284049669
+  border-color:#3fa9ff;
