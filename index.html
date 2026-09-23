@@ -3,767 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulse Cart Enterprises</title>
+
+<title>Pulse Cart Enterprises | Tech Store Abuja</title>
+
+<meta name="description" content="Pulse Cart Enterprises - Phones, laptops, gaming, audio and accessories in Abuja, Nigeria.">
 
 <style>
-* {
-  box-sizing: border-box;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  background: #050505;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050505;
+    color:#ffffff;
+    line-height:1.6;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a{
+    text-decoration:none;
 }
 
-header {
-  background: #0b0b0b;
-  border-bottom: 1px solid #222;
-  padding: 18px;
+img{
+    max-width:100%;
+    display:block;
 }
 
-.header-inner {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* HEADER */
+
+header{
+    background:#080808;
+    border-bottom:1px solid #222;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
+.navbar{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo span {
-  color: #168cff;
+.logo{
+    font-size:23px;
+    font-weight:800;
+    color:#fff;
 }
 
-nav a {
-  margin-left: 18px;
-  color: #ccc;
-  font-size: 14px;
+.logo span{
+    color:#168cff;
 }
 
-nav a:hover {
-  color: #168cff;
+nav{
+    display:flex;
+    gap:25px;
 }
 
-.hero {
-  max-width: 1100px;
-  margin: auto;
-  padding: 70px 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+nav a{
+    color:#aaa;
+    font-size:14px;
+    font-weight:600;
 }
 
-.badge {
-  color: #168cff;
-  border: 1px solid #168cff;
-  display: inline-block;
-  padding: 8px 13px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-bottom: 18px;
+nav a:hover{
+    color:#168cff;
 }
 
-h1 {
-  font-size: 64px;
-  line-height: 1;
-  margin: 0 0 20px;
-}
-
-h1 span {
-  color: #168cff;
-}
-
-.hero p {
-  color: #aaa;
-  font-size: 17px;
-  line-height: 1.7;
-  max-width: 520px;
-}
-
-.button {
-  display: inline-block;
-  background: #168cff;
-  padding: 13px 20px;
-  border-radius: 7px;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.button.black {
-  background: #151515;
-  border: 1px solid #333;
-  margin-left: 8px;
-}
-
-.hero-picture {
-  min-height: 390px;
-  border-radius: 20px;
-  background: #111 url("https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
-  border: 1px solid #292929;
-}
-
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 65px 20px;
-}
-
-.heading small {
-  color: #168cff;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.heading h2 {
-  font-size: 36px;
-  margin: 8px 0;
-}
-
-.heading p {
-  color: #888;
-}
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-  margin-top: 30px;
-}
-
-.category {
-  background: #111;
-  border: 1px solid #292929;
-  border-radius: 14px;
-  padding: 25px 10px;
-  text-align: center;
-}
-
-.category-icon {
-  font-size: 35px;
-  margin-bottom: 10px;
-}
-
-.category p {
-  color: #777;
-  font-size: 13px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-top: 30px;
-}
-
-.product {
-  background: #111;
-  border: 1px solid #292929;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.product img {
-  display: block;
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  background: #181818;
-}
-
-.product-info {
-  padding: 15px;
-}
-
-.category-name {
-  color: #168cff;
-  font-size: 11px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.product h3 {
-  font-size: 15px;
-  min-height: 45px;
-  margin: 9px 0;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 14px;
-}
-
-.order {
-  display: block;
-  text-align: center;
-  background: #168cff;
-  padding: 11px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.feature {
-  background: #111;
-  border: 1px solid #292929;
-  border-radius: 14px;
-  padding: 22px;
-}
-
-.feature-icon {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.feature p {
-  color: #888;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.about-picture {
-  height: 360px;
-  border-radius: 18px;
-  background: #111 url("https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
-}
-
-.about-text p {
-  color: #999;
-  line-height: 1.8;
-}
-
-.contact {
-  background: #111;
-  border: 1px solid #292929;
-  border-radius: 16px;
-  padding: 25px;
-  margin-top: 25px;
-}
-
-.contact-row {
-  padding: 16px 0;
-  border-bottom: 1px solid #292929;
-}
-
-.contact-row:last-child {
-  border-bottom: 0;
-}
-
-.contact-row small {
-  display: block;
-  color: #777;
-  margin-bottom: 5px;
-}
-
-.whatsapp {
-  display: inline-block;
-  background: #20c463;
-  padding: 13px 20px;
-  border-radius: 7px;
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-footer {
-  border-top: 1px solid #222;
-  text-align: center;
-  padding: 35px 20px;
-  color: #777;
-}
-
-@media (max-width: 850px) {
-
-  nav {
-    display: none;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 45px;
-  }
-
-  h1 {
-    font-size: 50px;
-  }
-
-  .hero-picture {
-    min-height: 300px;
-  }
-
-  .categories {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-
-  .header-inner {
-    justify-content: center;
-  }
-
-  .hero {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  h1 {
-    font-size: 43px;
-  }
-
-  section {
-    padding: 50px 15px;
-  }
-
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .product img {
-    height: 145px;
-  }
-
-  .product-info {
-    padding: 11px;
-  }
-
-  .product h3 {
-    font-size: 13px;
-    min-height: 58px;
-  }
-
-  .price {
-    font-size: 14px;
-  }
-
-  .order {
-    font-size: 11px;
-  }
-
-  .features {
-    grid-template-columns: 1fr;
-  }
-
-  .about-picture {
-    height: 270px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="header-inner">
-
-    <div class="logo">
-      Pulse <span>Cart</span>
-    </div>
-
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#products">Shop</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<div class="hero" id="home">
-
-  <div>
-    <div class="badge">PULSE CART ENTERPRISES</div>
-
-    <h1>
-      Discover <span>Tech.</span>
-    </h1>
-
-    <p>
-      Explore phones, laptops, gaming devices,
-      headphones, smart watches and other technology
-      products from Pulse Cart Enterprises.
-    </p>
-
-    <a href="#products" class="button">
-      Shop Products
-    </a>
-
-    <a
-      href="https://wa.me/23480976043577"
-      class="button black"
-      target="_blank"
-    >
-      WhatsApp
-    </a>
-  </div>
-
-  <div class="hero-picture"></div>
-
-</div>
-
-
-<section id="categories">
-
-  <div class="heading">
-    <small>Explore</small>
-    <h2>Shop by Category</h2>
-    <p>Find the technology products you're looking for.</p>
-  </div>
-
-  <div class="categories">
-
-    <div class="category">
-      <div class="category-icon">📱</div>
-      <h3>Phones</h3>
-      <p>Smartphones</p>
-    </div>
-
-    <div class="category">
-      <div class="category-icon">💻</div>
-      <h3>Laptops</h3>
-      <p>Computers</p>
-    </div>
-
-    <div class="category">
-      <div class="category-icon">🎮</div>
-      <h3>Gaming</h3>
-      <p>Gaming products</p>
-    </div>
-
-    <div class="category">
-      <div class="category-icon">🎧</div>
-      <h3>Audio</h3>
-      <p>Headphones</p>
-    </div>
-
-    <div class="category">
-<!-- CUSTOMER SUPPORT -->
-
-<section>
-
-  <div style="
-    background:linear-gradient(135deg,#0d1722,#101010);
-    border:1px solid #263746;
-    border-radius:20px;
-    padding:40px 25px;
+/* HERO */
+
+.hero{
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-  ">
+    padding:70px 20px;
+    background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.85)),
+    url("https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+}
 
-    <div style="
-      color:#168cff;
-      font-size:13px;
-      font-weight:bold;
-      letter-spacing:1px;
-      margin-bottom:10px;
-    ">
-      NEED HELP?
-    </div>
+.hero-content{
+    max-width:750px;
+}
 
-    <h2 style="
-      font-size:32px;
-      margin:0 0 12px;
-    ">
-      Talk To Pulse Cart
-    </h2>
+.small-title{
+    color:#168cff;
+    font-size:13px;
+    letter-spacing:3px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
 
-    <p style="
-      color:#999;
-      max-width:600px;
-      margin:0 auto 25px;
-      line-height:1.7;
-    ">
-      Have a question about a product, price or availability?
-      Contact Pulse Cart Enterprises directly on WhatsApp.
-    </p>
+.hero h1{
+    font-size:58px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
 
-    <a
-      href="https://wa.me/23480976043577"
-      target="_blank"
-      style="
-        display:inline-block;
-        background:#20c463;
-        color:white;
-        padding:14px 25px;
-        border-radius:8px;
-        font-weight:bold;
-      "
-    >
-      💬 Chat With Us on WhatsApp
-    </a>
+.hero h1 span{
+    color:#168cff;
+}
 
-  </div>
+.hero p{
+    color:#bbb;
+    font-size:17px;
+    max-width:650px;
+    margin:0 auto 30px;
+}
 
-  </section>
-<!-- ============================= -->
-<!-- PULSE CART EXTRA SECTION      -->
-<!-- ============================= -->
+.button{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+    margin:5px;
+}
 
-<section style="
-  max-width:1100px;
-  margin:0 auto;
-  padding:70px 20px;
-">
+.blue-button{
+    background:#168cff;
+    color:#fff;
+}
 
-  <div style="
-    background:linear-gradient(135deg,#0d1722,#080808);
-    border:1px solid #263746;
-    border-radius:22px;
-    padding:45px 25px;
+.whatsapp-button{
+    background:#20c463;
+    color:#fff;
+}
+
+.dark-button{
+    background:#151515;
+    border:1px solid #333;
+    color:#fff;
+}
+
+/* GENERAL */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.section-title{
     text-align:center;
-  ">
+    margin-bottom:40px;
+}
 
-    <div style="
-      color:#168cff;
-      font-size:12px;
-      font-weight:bold;
-      letter-spacing:2px;
-      margin-bottom:12px;
-    ">
-      PULSE CART ENTERPRISES
-    </div>
-
-    <h2 style="
-      color:white;
-      font-size:36px;
-      margin:0 0 15px;
-    ">
-      Ready to Get Your Tech?
-    </h2>
-
-    <p style="
-      color:#999;
-      max-width:650px;
-      margin:0 auto 28px;
-      line-height:1.8;
-      font-size:15px;
-    ">
-      Interested in a phone, laptop, gaming device,
-      headphones or accessory? Contact Pulse Cart
-      Enterprises directly for product information,
-      availability and orders.
-    </p>
-
-    <div style="
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-    ">
-
-      <a
-        href="https://wa.me/23480976043577"
-        target="_blank"
-        rel="noopener"
-        style="
-          display:inline-block;
-          background:#20c463;
-          color:white;
-          padding:14px 24px;
-          border-radius:8px;
-          font-weight:bold;
-          text-decoration:none;
-        "
-      >
-        💬 Chat on WhatsApp
-      </a>
-
-      <a
-        href="tel:+23480976043577"
-        style="
-          display:inline-block;
-          background:#168cff;
-          color:white;
-          padding:14px 24px;
-          border-radius:8px;
-          font-weight:bold;
-          text-decoration:none;
-        "
-      >
-        📞 Call Pulse Cart
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- QUICK CONTACT -->
-
-<section style="
-  max-width:1100px;
-  margin:0 auto;
-  padding:20px 20px 70px;
-">
-
-  <div style="
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-  ">
-
-    <div style="
-      background:#111;
-      border:1px solid #292929;
-      border-radius:15px;
-      padding:25px;
-      text-align:center;
-    ">
-
-      <div style="font-size:28px;margin-bottom:10px;">
-        📱
-      </div>
-
-      <h3 style="color:white;margin:0 0 8px;">
-        Phone
-      </h3>
-
-      <a
-        href="tel:+23480976043577"
-        style="color:#168cff;text-decoration:none;"
-      >
-        +234 8097 604 3577
-      </a>
-
-    </div>
-
-
-    <div style="
-      background:#111;
-      border:1px solid #292929;
-      border-radius:15px;
-      padding:25px;
-      text-align:center;
-    ">
-
-      <div style="font-size:28px;margin-bottom:10px;">
-        💬
-      </div>
-
-      <h3 style="color:white;margin:0 0 8px;">
-        WhatsApp
-      </h3>
-
-      <a
-        href="https://wa.me/23480976043577"
-        target="_blank"
-        rel="noopener"
-        style="color:#20c463;text-decoration:none;"
-      >
-        Message Us
-      </a>
-
-    </div>
-
-
-    <div style="
-      background:#111;
-      border:1px solid #292929;
-      border-radius:15px;
-      padding:25px;
-      text-align:center;
-    ">
-
-      <div style="font-size:28px;margin-bottom:10px;">
-        📍
-      </div>
-
-      <h3 style="color:white;margin:0 0 8px;">
-        Location
-      </h3>
-
-      <p style="
-        color:#999;
-        margin:0;
-        font-size:13px;
-        line-height:1.6;
-      ">
-        Abuja, FCT, Nigeria
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FINAL BRAND BANNER -->
-
-<section style="
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 20px 70px;
-">
-
-  <div style="
-    text-align:center;
-    border-top:1px solid #222;
-    padding-top:40px;
-  ">
-
-    <div style="
-      font-size:28px;
-      font-weight:bold;
-      color:white;
-    ">
-      Pulse <span style="color:#168cff;">Cart</span>
-    </div>
-
-    <p style="
-      color:#666;
-      font-size:13px;
-      margin:10px 0 0;
-    ">
-      Technology • Phones • Laptops • Gaming • Audio • Accessories
-    </p>
-
-  </div>
-
-</section>
+.section-title .label{
