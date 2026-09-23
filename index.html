@@ -1160,5 +1160,406 @@ Pulse <span>Cart</span>
 
 </footer>
 
-</body>
+</body><!-- CART SYSTEM -->
+
+<div id="cartOverlay" class="cart-overlay">
+
+  <div class="cart-panel">
+
+    <div class="cart-header">
+      <h2>🛒 Your Cart</h2>
+
+      <button onclick="closeCart()" class="close-cart">
+        ×
+      </button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-footer">
+
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">₦0</strong>
+      </div>
+
+      <button onclick="checkoutWhatsApp()" class="checkout-btn">
+        Order on WhatsApp
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<style>
+
+.cart-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  z-index:9999;
+}
+
+.cart-overlay.active{
+  display:block;
+}
+
+.cart-panel{
+  position:absolute;
+  right:0;
+  top:0;
+  width:430px;
+  max-width:95%;
+  height:100%;
+  background:#101419;
+  border-left:1px solid #333;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:20px;
+  border-bottom:1px solid #292f35;
+}
+
+.close-cart{
+  background:#252a30;
+  border:0;
+  color:white;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:25px;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  padding:16px 0;
+  border-bottom:1px solid #292f35;
+}
+
+.cart-item img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.cart-item-info{
+  flex:1;
+}
+
+.cart-item-info h4{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.cart-item-info p{
+  color:#2196f3;
+  font-weight:bold;
+}
+
+.cart-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.cart-controls button{
+  border:0;
+  background:#252a30;
+  color:white;
+  width:28px;
+  height:28px;
+  border-radius:5px;
+}
+
+.remove-item{
+  background:none !important;
+  color:#ff6666 !important;
+  width:auto !important;
+}
+
+.cart-footer{
+  padding-top:20px;
+  margin-top:10px;
+  border-top:1px solid #333;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-size:20px;
+  margin-bottom:18px;
+}
+
+.checkout-btn{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:8px;
+  background:#25d366;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.empty-cart{
+  text-align:center;
+  color:#777;
+  padding:60px 10px;
+}
+
+</style>
+
+
+<script>
+
+let shoppingCart = [];
+
+
+/* OPEN CART */
+
+function openCart(){
+
+  document.getElementById("cartOverlay")
+    .classList.add("active");
+
+  renderCart();
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+  document.getElementById("cartOverlay")
+    .classList.remove("active");
+
+}
+
+
+/* ADD PRODUCT */
+
+function addProductToCart(name,price,image){
+
+  let existing = shoppingCart.find(
+    item => item.name === name
+  );
+
+  if(existing){
+
+    existing.quantity++;
+
+  }else{
+
+    shoppingCart.push({
+      name:name,
+      price:price,
+      image:image,
+      quantity:1
+    });
+
+  }
+
+  renderCart();
+
+  openCart();
+
+}
+
+
+/* REMOVE */
+
+function removeFromCart(index){
+
+  shoppingCart.splice(index,1);
+
+  renderCart();
+
+}
+
+
+/* QUANTITY */
+
+function changeCartQuantity(index,amount){
+
+  shoppingCart[index].quantity += amount;
+
+  if(shoppingCart[index].quantity <= 0){
+
+    shoppingCart.splice(index,1);
+
+  }
+
+  renderCart();
+
+}
+
+
+/* DISPLAY CART */
+
+function renderCart(){
+
+  const container =
+    document.getElementById("cartItems");
+
+  const totalElement =
+    document.getElementById("cartTotal");
+
+  if(shoppingCart.length === 0){
+
+    container.innerHTML = `
+      <div class="empty-cart">
+        <h3>Your cart is empty</h3>
+        <p>Add products to your cart to continue.</p>
+      </div>
+    `;
+
+    totalElement.textContent = "₦0";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+  container.innerHTML = "";
+
+
+  shoppingCart.forEach((item,index)=>{
+
+    total += item.price * item.quantity;
+
+
+    container.innerHTML += `
+
+      <div class="cart-item">
+
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+        >
+
+        <div class="cart-item-info">
+
+          <h4>${item.name}</h4>
+
+          <p>
+            ₦${item.price.toLocaleString("en-NG")}
+          </p>
+
+          <div class="cart-controls">
+
+            <button
+              onclick="changeCartQuantity(${index},-1)"
+            >
+              −
+            </button>
+
+            <span>
+              ${item.quantity}
+            </span>
+
+            <button
+              onclick="changeCartQuantity(${index},1)"
+            >
+              +
+            </button>
+
+            <button
+              class="remove-item"
+              onclick="removeFromCart(${index})"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+
+  totalElement.textContent =
+    "₦" + total.toLocaleString("en-NG");
+
+}
+
+
+/* WHATSAPP CHECKOUT */
+
+function checkoutWhatsApp(){
+
+  if(shoppingCart.length === 0){
+
+    alert("Your cart is empty.");
+
+    return;
+
+  }
+
+
+  let message =
+    "Hello Pulse Cart Enterprises,%0A%0A" +
+    "I would like to order:%0A%0A";
+
+
+  let total = 0;
+
+
+  shoppingCart.forEach((item,index)=>{
+
+    let subtotal =
+      item.price * item.quantity;
+
+    total += subtotal;
+
+
+    message +=
+      (index + 1) +
+      ". " +
+      item.name +
+      "%0A" +
+      "Quantity: " +
+      item.quantity +
+      "%0A" +
+      "Price: ₦" +
+      subtotal.toLocaleString("en-NG") +
+      "%0A%0A";
+
+  });
+
+
+  message +=
+    "Total: ₦" +
+    total.toLocaleString("en-NG") +
+    "%0A%0A" +
+    "Please confirm availability and delivery details.";
+
+
+  window.open(
+    "https://wa.me/23480976043577?text=" +
+    message,
+    "_blank"
+  );
+
+}
+
+  </script>
   </html>
