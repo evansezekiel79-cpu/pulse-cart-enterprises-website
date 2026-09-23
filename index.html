@@ -13,10 +13,23 @@
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:#05070a;
-  color:white;
+  color:#fff;
+  line-height:1.5;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 a{
@@ -24,13 +37,15 @@ a{
   color:inherit;
 }
 
+/* HEADER */
+
 header{
   background:#090b0f;
-  border-bottom:1px solid #252a30;
-  padding:18px 5%;
+  border-bottom:1px solid #292f35;
+  padding:16px 5%;
   position:sticky;
   top:0;
-  z-index:10;
+  z-index:1000;
 }
 
 .nav{
@@ -43,7 +58,7 @@ header{
 
 .logo{
   font-size:23px;
-  font-weight:bold;
+  font-weight:800;
 }
 
 .logo span{
@@ -57,17 +72,31 @@ nav{
 
 nav a{
   color:#bbb;
+  font-size:14px;
 }
 
 nav a:hover{
   color:#2196f3;
 }
 
-.cart{
+.cart-button{
   background:#151a20;
-  border:1px solid #333;
-  padding:10px 15px;
+  color:white;
+  border:1px solid #343a40;
   border-radius:8px;
+  padding:10px 15px;
+}
+
+.cart-button:hover{
+  border-color:#2196f3;
+}
+
+.cart-count{
+  background:#2196f3;
+  border-radius:20px;
+  padding:3px 7px;
+  margin-left:4px;
+  font-size:11px;
 }
 
 /* HERO */
@@ -77,14 +106,10 @@ nav a:hover{
   margin:auto;
   min-height:600px;
   padding:80px 5%;
-  display:flex;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
   align-items:center;
-  justify-content:space-between;
-  gap:40px;
-}
-
-.hero-text{
-  flex:1;
 }
 
 .badge{
@@ -93,75 +118,100 @@ nav a:hover{
   border:1px solid #2196f3;
   padding:8px 14px;
   border-radius:30px;
-  font-size:12px;
-  margin-bottom:20px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1px;
 }
 
-h1{
-  font-size:70px;
+.hero h1{
+  font-size:clamp(50px,7vw,78px);
   line-height:1;
-  margin-bottom:25px;
+  margin:20px 0;
+  letter-spacing:-3px;
 }
 
-h1 span{
+.hero h1 span{
   color:#2196f3;
 }
 
 .hero p{
   color:#999;
   font-size:18px;
-  line-height:1.7;
-  max-width:550px;
+  max-width:570px;
   margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
 .btn{
   display:inline-block;
   background:#2196f3;
+  color:white;
   padding:14px 22px;
   border-radius:8px;
   font-weight:bold;
-  margin-right:10px;
 }
 
 .btn.dark{
   background:#151a20;
-  border:1px solid #333;
+  border:1px solid #343a40;
+}
+
+.stats{
+  display:flex;
+  gap:35px;
+  margin-top:40px;
+}
+
+.stats strong{
+  display:block;
+  font-size:22px;
+}
+
+.stats small{
+  color:#777;
 }
 
 .hero-image{
-  flex:1;
-  height:430px;
+  height:450px;
   border-radius:25px;
-  background-image:url("https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=1000&q=80");
+  border:1px solid #333;
+  background-image:
+    linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=1200&q=80");
   background-size:cover;
   background-position:center;
-  border:1px solid #333;
 }
 
-/* SECTION */
+/* SECTIONS */
 
-section{
+.section{
   max-width:1200px;
   margin:auto;
   padding:70px 5%;
 }
 
-.section-title{
-  margin-bottom:35px;
+.heading{
+  margin-bottom:30px;
 }
 
-.section-title small{
+.heading small{
   color:#2196f3;
   text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing:1px;
 }
 
-.section-title h2{
+.heading h2{
   font-size:38px;
-  margin:8px 0;
+  margin:7px 0;
 }
 
-.section-title p{
+.heading p{
   color:#777;
 }
 
@@ -176,24 +226,64 @@ section{
 .category{
   background:#101419;
   border:1px solid #292f35;
-  padding:25px;
   border-radius:15px;
+  padding:25px;
   text-align:center;
+  transition:.2s;
 }
 
 .category:hover{
   border-color:#2196f3;
+  transform:translateY(-3px);
 }
 
-.category .icon{
-  font-size:40px;
-  margin-bottom:15px;
+.category-icon{
+  font-size:38px;
+  margin-bottom:12px;
 }
 
 .category p{
   color:#777;
-  margin-top:7px;
   font-size:13px;
+}
+
+/* SEARCH */
+
+.search{
+  width:100%;
+  background:#101419;
+  border:1px solid #30363d;
+  color:white;
+  border-radius:9px;
+  padding:15px;
+  outline:none;
+  margin-bottom:15px;
+}
+
+.search:focus{
+  border-color:#2196f3;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.filter{
+  background:#101419;
+  border:1px solid #343a40;
+  color:#bbb;
+  border-radius:25px;
+  padding:9px 16px;
+}
+
+.filter.active,
+.filter:hover{
+  background:#2196f3;
+  color:white;
+  border-color:#2196f3;
 }
 
 /* PRODUCTS */
@@ -209,50 +299,68 @@ section{
   border:1px solid #292f35;
   border-radius:15px;
   overflow:hidden;
+  transition:.2s;
 }
 
 .product:hover{
   border-color:#2196f3;
+  transform:translateY(-3px);
 }
 
-.product img{
-  width:100%;
+.product-image{
   height:210px;
+  background:#171b20;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
   object-fit:cover;
   display:block;
 }
 
 .product-info{
-  padding:17px;
+  padding:16px;
 }
 
 .product-category{
   color:#2196f3;
-  font-size:11px;
-  text-transform:uppercase;
+  font-size:10px;
   font-weight:bold;
+  text-transform:uppercase;
 }
 
 .product h3{
-  font-size:16px;
-  margin:10px 0;
-  min-height:42px;
+  font-size:15px;
+  margin:8px 0;
+  min-height:45px;
 }
 
 .price{
-  font-size:20px;
+  font-size:19px;
   font-weight:bold;
-  margin-bottom:15px;
+  margin:12px 0;
 }
 
-.order{
-  display:block;
+.add-cart{
   width:100%;
-  text-align:center;
+  border:0;
   background:#2196f3;
+  color:white;
   padding:12px;
-  border-radius:7px;
+  border-radius:8px;
   font-weight:bold;
+}
+
+.add-cart:hover{
+  opacity:.85;
+}
+
+.no-results{
+  grid-column:1/-1;
+  text-align:center;
+  padding:50px;
+  color:#777;
 }
 
 /* FEATURES */
@@ -272,14 +380,13 @@ section{
 
 .feature-icon{
   font-size:30px;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
 .feature p{
   color:#777;
   font-size:13px;
   margin-top:8px;
-  line-height:1.6;
 }
 
 /* ABOUT */
@@ -294,1272 +401,5 @@ section{
 .about-image{
   height:400px;
   border-radius:20px;
-  background-image:url("https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=1000&q=80");
-  background-size:cover;
-  background-position:center;
-}
-
-.about-text p{
-  color:#999;
-  line-height:1.8;
-  margin-bottom:15px;
-}
-
-/* CONTACT */
-
-.contact-box{
-  background:#101419;
-  border:1px solid #292f35;
-  border-radius:18px;
-  padding:30px;
-}
-
-.contact-item{
-  padding:18px 0;
-  border-bottom:1px solid #292f35;
-}
-
-.contact-item:last-child{
-  border-bottom:0;
-}
-
-.contact-item small{
-  display:block;
-  color:#777;
-  margin-bottom:6px;
-}
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid #292f35;
-  padding:40px 5%;
-  text-align:center;
-  color:#777;
-}
-
-footer .logo{
-  color:white;
-  margin-bottom:10px;
-}
-
-footer span{
-  color:#2196f3;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  nav{
-    display:none;
-  }
-
-  .hero{
-    flex-direction:column;
-    padding-top:50px;
-  }
-
-  h1{
-    font-size:52px;
-  }
-
-  .hero-image{
-    width:100%;
-    height:320px;
-  }
-
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .features{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .about{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(max-width:600px){
-
-  header{
-    padding:15px;
-  }
-
-  .hero{
-    padding:50px 15px;
-  }
-
-  h1{
-    font-size:46px;
-  }
-
-  section{
-    padding:50px 15px;
-  }
-
-  .categories{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .products{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
-
-  .product img{
-    height:150px;
-  }
-
-  .product-info{
-    padding:12px;
-  }
-
-  .product h3{
-    font-size:13px;
-  }
-
-  .price{
-    font-size:15px;
-  }
-
-  .features{
-    grid-template-columns:1fr;
-  }
-
-}
-</style>
-</head>
-
-<body>
-
-<header>
-
-<div class="nav">
-
-<div class="logo">
-Pulse <span>Cart</span>
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#categories">Categories</a>
-<a href="#products">Shop</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<a class="cart" href="#products">
-🛒 Shop
-</a>
-
-</div>
-
-</header>
-
-
-<!-- HERO -->
-
-<div class="hero" id="home">
-
-<div class="hero-text">
-
-<div class="badge">
-PULSE CART ENTERPRISES
-</div>
-
-<h1>
-Discover <span>Tech.</span>
-</h1>
-
-<p>
-Explore phones, laptops, gaming devices,
-headphones, smart watches and other technology
-products from Pulse Cart Enterprises.
-</p>
-
-<a href="#products" class="btn">
-Shop Products
-</a>
-
-<a
-href="https://wa.me/23480976043577"
-class="btn dark"
-target="_blank"
->
-WhatsApp
-</a>
-
-</div>
-
-<div class="hero-image"></div>
-
-</div>
-
-
-<!-- CATEGORIES -->
-
-<section id="categories">
-
-<div class="section-title">
-
-<small>Explore</small>
-
-<h2>Shop by Category</h2>
-
-<p>Find the technology products you're looking for.</p>
-
-</div>
-
-<div class="categories">
-
-<div class="category">
-<div class="icon">📱</div>
-<h3>Phones</h3>
-<p>Smartphones</p>
-</div>
-
-<div class="category">
-<div class="icon">💻</div>
-<h3>Laptops</h3>
-<p>Computers</p>
-</div>
-
-<div class="category">
-<div class="icon">🎮</div>
-<h3>Gaming</h3>
-<p>Gaming products</p>
-</div>
-
-<div class="category">
-<div class="icon">🎧</div>
-<h3>Audio</h3>
-<p>Headphones</p>
-</div>
-
-<div class="category">
-<div class="icon">⌚</div>
-<h3>Accessories</h3>
-<p>Smart accessories</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section id="products">
-
-<div class="section-title">
-
-<small>Store</small>
-
-<h2>Popular Products</h2>
-
-<p>Browse products available from Pulse Cart.</p>
-
-</div>
-
-<div class="products">
-
-
-<!-- 1 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Laptops
-</div>
-
-<h3>
-Apple MacBook Pro 16-inch 2019
-</h3>
-
-<div class="price">
-₦1,050,000
-</div>
-
-<a
-href="https://wa.me/23480976043577?text=Hello%20Pulse%20Cart%2C%20I%20am%20interested%20in%20the%20Apple%20MacBook%20Pro%2016-inch%202019."
-class="order"
-target="_blank"
->
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 2 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Laptops
-</div>
-
-<h3>
-Apple MacBook Air 13.3-inch 2020
-</h3>
-
-<div class="price">
-₦612,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 3 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Laptops
-</div>
-
-<h3>
-Dell Latitude 7400 2-in-1 Laptop
-</h3>
-
-<div class="price">
-₦890,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 4 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Gaming
-</div>
-
-<h3>
-Sony PlayStation PS5
-</h3>
-
-<div class="price">
-₦950,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 5 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-Tecno Camon 40 CM5
-</h3>
-
-<div class="price">
-₦319,800
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 6 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-OPPO A5 Pro
-</h3>
-
-<div class="price">
-₦340,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 7 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-Samsung Galaxy A36
-</h3>
-
-<div class="price">
-₦557,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 8 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Accessories
-</div>
-
-<h3>
-Apple Watch Series 6 GPS & LTE
-</h3>
-
-<div class="price">
-₦430,800
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 9 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Audio
-</div>
-
-<h3>
-JBL Live 460NC
-</h3>
-
-<div class="price">
-₦179,603.99
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 10 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Audio
-</div>
-
-<h3>
-JBL Tune 520BT
-</h3>
-
-<div class="price">
-₦66,300
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 11 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-iPhone 13 Pro Max 256GB
-</h3>
-
-<div class="price">
-₦990,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 12 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Laptops
-</div>
-
-<h3>
-Apple MacBook Pro 2023 14-inch
-</h3>
-
-<div class="price">
-₦1,500,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 13 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-iPhone 14
-</h3>
-
-<div class="price">
-₦1,000,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 14 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-iPhone 15 Pro Max
-</h3>
-
-<div class="price">
-₦1,500,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 15 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-Samsung Galaxy Flip 6
-</h3>
-
-<div class="price">
-₦1,900,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-
-<!-- 16 -->
-
-<div class="product">
-
-<img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=800&q=80">
-
-<div class="product-info">
-
-<div class="product-category">
-Phones
-</div>
-
-<h3>
-Samsung Galaxy S24
-</h3>
-
-<div class="price">
-₦1,290,000
-</div>
-
-<a href="https://wa.me/23480976043577" class="order" target="_blank">
-Order
-</a>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FEATURES -->
-
-<section>
-
-<div class="section-title">
-
-<small>Pulse Cart</small>
-
-<h2>Why Shop With Us?</h2>
-
-</div>
-
-<div class="features">
-
-<div class="feature">
-<div class="feature-icon">✓</div>
-<h3>Quality Products</h3>
-<p>Explore phones, computers, gaming products, audio devices and accessories.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🛒</div>
-<h3>Easy Ordering</h3>
-<p>Choose a product and contact Pulse Cart directly to make an order.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">💬</div>
-<h3>WhatsApp Support</h3>
-<p>Contact the business directly through WhatsApp.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📍</div>
-<h3>Abuja Based</h3>
-<p>Pulse Cart Enterprises is based in Abuja, Nigeria.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="about">
-
-<div class="about-image"></div>
-
-<div class="about-text">
-
-<div class="section-title">
-
-<small>About Us</small>
-
-<h2>Pulse Cart Enterprises</h2>
-
-</div>
-
-<p>
-Pulse Cart Enterprises is an e-commerce store
-based in Abuja, Nigeria.
-</p>
-
-<p>
-The business offers technology products including
-phones, laptops, gaming products, audio devices
-and accessories.
-</p>
-
-<a href="#contact" class="btn">
-Contact Us
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<div class="section-title">
-
-<small>Contact</small>
-
-<h2>Get In Touch</h2>
-
-</div>
-
-<div class="contact-box">
-
-<div class="contact-item">
-<small>Phone / WhatsApp</small>
-<strong>+234 8097 604 3577</strong>
-</div>
-
-<div class="contact-item">
-<small>Email</small>
-<strong>contact@pulsecart.com</strong>
-</div>
-
-<div class="contact-item">
-<small>Address</small>
-<strong>
-7, Bamanga Tukur Street, Trademore Estate,
-Lugbe, Abuja, FCT, Nigeria
-</strong>
-</div>
-
-</div>
-
-</section>
-
-
-<footer>
-
-<div class="logo">
-Pulse <span>Cart</span>
-</div>
-
-<p>
-© 2026 Pulse Cart Enterprises. All rights reserved.
-</p>
-
-</footer>
-
-</body><!-- CART SYSTEM -->
-
-<div id="cartOverlay" class="cart-overlay">
-
-  <div class="cart-panel">
-
-    <div class="cart-header">
-      <h2>🛒 Your Cart</h2>
-
-      <button onclick="closeCart()" class="close-cart">
-        ×
-      </button>
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div class="cart-footer">
-
-      <div class="cart-total">
-        <span>Total</span>
-        <strong id="cartTotal">₦0</strong>
-      </div>
-
-      <button onclick="checkoutWhatsApp()" class="checkout-btn">
-        Order on WhatsApp
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<style>
-
-.cart-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  z-index:9999;
-}
-
-.cart-overlay.active{
-  display:block;
-}
-
-.cart-panel{
-  position:absolute;
-  right:0;
-  top:0;
-  width:430px;
-  max-width:95%;
-  height:100%;
-  background:#101419;
-  border-left:1px solid #333;
-  padding:20px;
-  overflow-y:auto;
-}
-
-.cart-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding-bottom:20px;
-  border-bottom:1px solid #292f35;
-}
-
-.close-cart{
-  background:#252a30;
-  border:0;
-  color:white;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  font-size:25px;
-}
-
-.cart-item{
-  display:flex;
-  gap:12px;
-  padding:16px 0;
-  border-bottom:1px solid #292f35;
-}
-
-.cart-item img{
-  width:70px;
-  height:70px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-.cart-item-info{
-  flex:1;
-}
-
-.cart-item-info h4{
-  font-size:14px;
-  margin-bottom:6px;
-}
-
-.cart-item-info p{
-  color:#2196f3;
-  font-weight:bold;
-}
-
-.cart-controls{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:8px;
-}
-
-.cart-controls button{
-  border:0;
-  background:#252a30;
-  color:white;
-  width:28px;
-  height:28px;
-  border-radius:5px;
-}
-
-.remove-item{
-  background:none !important;
-  color:#ff6666 !important;
-  width:auto !important;
-}
-
-.cart-footer{
-  padding-top:20px;
-  margin-top:10px;
-  border-top:1px solid #333;
-}
-
-.cart-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  margin-bottom:18px;
-}
-
-.checkout-btn{
-  width:100%;
-  border:0;
-  padding:15px;
-  border-radius:8px;
-  background:#25d366;
-  color:white;
-  font-weight:bold;
-  font-size:15px;
-}
-
-.empty-cart{
-  text-align:center;
-  color:#777;
-  padding:60px 10px;
-}
-
-</style>
-
-
-<script>
-
-let shoppingCart = [];
-
-
-/* OPEN CART */
-
-function openCart(){
-
-  document.getElementById("cartOverlay")
-    .classList.add("active");
-
-  renderCart();
-
-}
-
-
-/* CLOSE CART */
-
-function closeCart(){
-
-  document.getElementById("cartOverlay")
-    .classList.remove("active");
-
-}
-
-
-/* ADD PRODUCT */
-
-function addProductToCart(name,price,image){
-
-  let existing = shoppingCart.find(
-    item => item.name === name
-  );
-
-  if(existing){
-
-    existing.quantity++;
-
-  }else{
-
-    shoppingCart.push({
-      name:name,
-      price:price,
-      image:image,
-      quantity:1
-    });
-
-  }
-
-  renderCart();
-
-  openCart();
-
-}
-
-
-/* REMOVE */
-
-function removeFromCart(index){
-
-  shoppingCart.splice(index,1);
-
-  renderCart();
-
-}
-
-
-/* QUANTITY */
-
-function changeCartQuantity(index,amount){
-
-  shoppingCart[index].quantity += amount;
-
-  if(shoppingCart[index].quantity <= 0){
-
-    shoppingCart.splice(index,1);
-
-  }
-
-  renderCart();
-
-}
-
-
-/* DISPLAY CART */
-
-function renderCart(){
-
-  const container =
-    document.getElementById("cartItems");
-
-  const totalElement =
-    document.getElementById("cartTotal");
-
-  if(shoppingCart.length === 0){
-
-    container.innerHTML = `
-      <div class="empty-cart">
-        <h3>Your cart is empty</h3>
-        <p>Add products to your cart to continue.</p>
-      </div>
-    `;
-
-    totalElement.textContent = "₦0";
-
-    return;
-
-  }
-
-
-  let total = 0;
-
-  container.innerHTML = "";
-
-
-  shoppingCart.forEach((item,index)=>{
-
-    total += item.price * item.quantity;
-
-
-    container.innerHTML += `
-
-      <div class="cart-item">
-
-        <img
-          src="${item.image}"
-          alt="${item.name}"
-        >
-
-        <div class="cart-item-info">
-
-          <h4>${item.name}</h4>
-
-          <p>
-            ₦${item.price.toLocaleString("en-NG")}
-          </p>
-
-          <div class="cart-controls">
-
-            <button
-              onclick="changeCartQuantity(${index},-1)"
-            >
-              −
-            </button>
-
-            <span>
-              ${item.quantity}
-            </span>
-
-            <button
-              onclick="changeCartQuantity(${index},1)"
-            >
-              +
-            </button>
-
-            <button
-              class="remove-item"
-              onclick="removeFromCart(${index})"
-            >
-              Remove
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
-
-
-  totalElement.textContent =
-    "₦" + total.toLocaleString("en-NG");
-
-}
-
-
-/* WHATSAPP CHECKOUT */
-
-function checkoutWhatsApp(){
-
-  if(shoppingCart.length === 0){
-
-    alert("Your cart is empty.");
-
-    return;
-
-  }
-
-
-  let message =
-    "Hello Pulse Cart Enterprises,%0A%0A" +
-    "I would like to order:%0A%0A";
-
-
-  let total = 0;
-
-
-  shoppingCart.forEach((item,index)=>{
-
-    let subtotal =
-      item.price * item.quantity;
-
-    total += subtotal;
-
-
-    message +=
-      (index + 1) +
-      ". " +
-      item.name +
-      "%0A" +
-      "Quantity: " +
-      item.quantity +
-      "%0A" +
-      "Price: ₦" +
-      subtotal.toLocaleString("en-NG") +
-      "%0A%0A";
-
-  });
-
-
-  message +=
-    "Total: ₦" +
-    total.toLocaleString("en-NG") +
-    "%0A%0A" +
-    "Please confirm availability and delivery details.";
-
-
-  window.open(
-    "https://wa.me/23480976043577?text=" +
-    message,
-    "_blank"
-  );
-
-}
-
-  </script>
-  </html>
+  background-image:
+    linear
