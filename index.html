@@ -1,165 +1,1024 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pulse Cart Enterprises - Phones, laptops, gaming, audio and accessories.">
+  <title>Pulse Cart Enterprises</title>
 
-<title>Pulse Cart Enterprises | Tech Store Abuja</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<meta name="description" content="Pulse Cart Enterprises - Phones, laptops, gaming, audio and accessories in Abuja, Nigeria.">
+    html {
+      scroll-behavior: smooth;
+    }
 
-<style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #111827;
+      line-height: 1.5;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    button,
+    input {
+      font: inherit;
+    }
 
-html{
-    scroll-behavior:smooth;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#050505;
-    color:#ffffff;
-    line-height:1.6;
-}
+    /* HEADER */
+    header {
+      background: #111827;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,.15);
+    }
 
-a{
-    text-decoration:none;
-}
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 70px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-img{
-    max-width:100%;
-    display:block;
-}
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
 
-/* HEADER */
+    .logo span {
+      color: #22c55e;
+    }
 
-header{
-    background:#080808;
-    border-bottom:1px solid #222;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.navbar{
-    max-width:1150px;
-    margin:auto;
-    padding:18px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
+    .cart-button {
+      border: none;
+      background: #22c55e;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: 700;
+    }
 
-.logo{
-    font-size:23px;
-    font-weight:800;
-    color:#fff;
-}
+    .cart-button:hover {
+      background: #16a34a;
+    }
 
-.logo span{
-    color:#168cff;
-}
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(17,24,39,.96), rgba(30,41,59,.92));
+      color: white;
+      padding: 75px 20px;
+    }
 
-nav{
-    display:flex;
-    gap:25px;
-}
+    .hero-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 40px;
+      align-items: center;
+    }
 
-nav a{
-    color:#aaa;
-    font-size:14px;
-    font-weight:600;
-}
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
 
-nav a:hover{
-    color:#168cff;
-}
+    .hero h1 span {
+      color: #22c55e;
+    }
 
-/* HERO */
+    .hero p {
+      max-width: 650px;
+      font-size: 18px;
+      color: #d1d5db;
+      margin-bottom: 28px;
+    }
 
-.hero{
-    min-height:520px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:70px 20px;
-    background:
-    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.85)),
-    url("https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=1600&q=80");
-    background-size:cover;
-    background-position:center;
-}
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-.hero-content{
-    max-width:750px;
-}
+    .primary-btn,
+    .secondary-btn {
+      display: inline-block;
+      padding: 13px 19px;
+      border-radius: 9px;
+      font-weight: 700;
+    }
 
-.small-title{
-    color:#168cff;
-    font-size:13px;
-    letter-spacing:3px;
-    font-weight:bold;
-    margin-bottom:15px;
-}
+    .primary-btn {
+      background: #22c55e;
+      color: white;
+    }
 
-.hero h1{
-    font-size:58px;
-    line-height:1.05;
-    margin-bottom:20px;
-}
+    .secondary-btn {
+      background: white;
+      color: #111827;
+    }
 
-.hero h1 span{
-    color:#168cff;
-}
+    .hero-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+    }
 
-.hero p{
-    color:#bbb;
-    font-size:17px;
-    max-width:650px;
-    margin:0 auto 30px;
-}
+    .hero-card .big-icon {
+      font-size: 75px;
+      margin-bottom: 10px;
+    }
 
-.button{
-    display:inline-block;
-    padding:14px 24px;
-    border-radius:8px;
-    font-weight:bold;
-    margin:5px;
-}
+    .hero-card h2 {
+      margin-bottom: 7px;
+    }
 
-.blue-button{
-    background:#168cff;
-    color:#fff;
-}
+    .hero-card p {
+      font-size: 15px;
+      margin: 0;
+    }
 
-.whatsapp-button{
-    background:#20c463;
-    color:#fff;
-}
+    /* STATS */
+    .stats {
+      max-width: 1100px;
+      margin: -30px auto 0;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 0 20px;
+    }
 
-.dark-button{
-    background:#151515;
-    border:1px solid #333;
-    color:#fff;
-}
+    .stat {
+      background: white;
+      border-radius: 13px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 7px 25px rgba(0,0,0,.08);
+    }
 
-/* GENERAL */
+    .stat strong {
+      display: block;
+      font-size: 27px;
+      margin-bottom: 3px;
+    }
 
-.container{
-    max-width:1150px;
-    margin:auto;
-    padding:70px 20px;
-}
+    .stat span {
+      color: #6b7280;
+    }
 
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-}
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 20px;
+    }
 
-.section-title .label{
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    /* SEARCH */
+    .search-box {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 18px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      outline: none;
+      background: white;
+    }
+
+    .search-box input:focus {
+      border-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.12);
+    }
+
+    /* CATEGORIES */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .category {
+      border: 1px solid #d1d5db;
+      background: white;
+      color: #374151;
+      padding: 9px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .category.active,
+    .category:hover {
+      background: #111827;
+      color: white;
+      border-color: #111827;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+      transition: transform .2s, box-shadow .2s;
+      border: 1px solid #eef0f4;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.11);
+    }
+
+    .product-image {
+      height: 210px;
+      background: #eef2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-content {
+      padding: 17px;
+    }
+
+    .product-category {
+      color: #16a34a;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .product h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .product-description {
+      color: #6b7280;
+      font-size: 13px;
+      min-height: 39px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .product-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .add-btn,
+    .order-btn {
+      border: none;
+      padding: 10px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .add-btn {
+      background: #111827;
+      color: white;
+    }
+
+    .add-btn:hover {
+      background: #374151;
+    }
+
+    .order-btn {
+      background: #22c55e;
+      color: white;
+    }
+
+    .order-btn:hover {
+      background: #16a34a;
+    }
+
+    .no-products {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px;
+      color: #6b7280;
+    }
+
+    /* WHY US */
+    .why-us {
+      margin-top: 70px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      background: white;
+      padding: 25px 18px;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .feature-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      margin-bottom: 6px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* ABOUT */
+    .about {
+      margin-top: 70px;
+      background: #111827;
+      color: white;
+      border-radius: 18px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 31px;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      color: #d1d5db;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b1120;
+      color: white;
+      margin-top: 60px;
+      padding: 45px 20px 25px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .footer-link {
+      color: #d1d5db;
+      display: block;
+      margin: 6px 0;
+    }
+
+    .footer-link:hover {
+      color: #22c55e;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 35px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #1f2937;
+      text-align: center;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    /* CART */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 2000;
+      display: none;
+    }
+
+    .cart-overlay.open {
+      display: block;
+    }
+
+    .cart {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: min(430px, 100%);
+      background: white;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -5px 0 25px rgba(0,0,0,.15);
+    }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cart-header h2 {
+      font-size: 22px;
+    }
+
+    .close-cart {
+      border: none;
+      background: #f3f4f6;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+    }
+
+    .cart-item {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 13px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item h4 {
+      font-size: 14px;
+    }
+
+    .cart-item p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .quantity-btn,
+    .remove-btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 4px 8px;
+    }
+
+    .quantity-btn {
+      background: #e5e7eb;
+    }
+
+    .remove-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 18px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .checkout {
+      width: 100%;
+      border: none;
+      background: #22c55e;
+      color: white;
+      padding: 14px;
+      border-radius: 9px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .checkout:hover {
+      background: #16a34a;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 50px 20px;
+      color: #6b7280;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 750px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 20px;
+      }
+
+      .hero-card {
+        display: none;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav {
+        padding: 10px 12px;
+      }
+
+      .cart-button {
+        padding: 9px 11px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        padding: 30px 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <a href="#" class="logo">PULSE <span>CART</span></a>
+
+      <div class="nav-right">
+        <button class="cart-button" onclick="openCart()">
+          🛒 Cart <span id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div>
+        <h1>Discover <span>Tech.</span></h1>
+
+        <p>
+          Explore phones, laptops, gaming consoles, audio products
+          and accessories from Pulse Cart Enterprises.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#shop" class="primary-btn">Shop Now</a>
+          <a href="#about" class="secondary-btn">About Us</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="big-icon">💻</div>
+        <h2>Technology Made Easy</h2>
+        <p>
+          Quality gadgets and convenient ordering for tech lovers.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat">
+      <strong>16+</strong>
+      <span>Products</span>
+    </div>
+
+    <div class="stat">
+      <strong>5</strong>
+      <span>Categories</span>
+    </div>
+
+    <div class="stat">
+      <strong>Abuja</strong>
+      <span>Based Store</span>
+    </div>
+  </section>
+
+  <!-- MAIN SHOP -->
+  <main id="shop">
+
+    <div class="section-title">
+      <h2>Our Products</h2>
+      <p>Browse our available technology products.</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search phones, laptops, PS5, accessories..."
+        oninput="renderProducts()"
+      >
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+      <button class="category active" onclick="setCategory('All', this)">All</button>
+      <button class="category" onclick="setCategory('Phones', this)">📱 Phones</button>
+      <button class="category" onclick="setCategory('Laptops', this)">💻 Laptops</button>
+      <button class="category" onclick="setCategory('Gaming', this)">🎮 Gaming</button>
+      <button class="category" onclick="setCategory('Audio', this)">🎧 Audio</button>
+      <button class="category" onclick="setCategory('Accessories', this)">🔌 Accessories</button>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products" id="products"></div>
+
+    <!-- WHY US -->
+    <section class="why-us">
+
+      <div class="section-title">
+        <h2>Why Shop With Us?</h2>
+        <p>Simple, convenient and customer-focused.</p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">🚚</div>
+          <h3>Easy Ordering</h3>
+          <p>Send your order directly to us through WhatsApp.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <h3>Wide Selection</h3>
+          <p>Phones, computers, gaming, audio and accessories.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>Quick Contact</h3>
+          <p>Contact our store to confirm product availability.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⭐</div>
+          <h3>Tech Focused</h3>
+          <p>We focus on products made for modern technology users.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <h2>About Pulse Cart Enterprises</h2>
+
+      <p>
+        Pulse Cart Enterprises is an Abuja-based technology store
+        offering a selection of phones, laptops, gaming products,
+        audio devices and accessories. Browse our products and
+        contact us to confirm availability and place your order.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+        <h3>PULSE CART ENTERPRISES</h3>
+        <p>
+          Your destination for phones, laptops, gaming,
+          audio and technology accessories.
+        </p>
+      </div>
+
+      <div>
+        <h3>Shop</h3>
+        <a class="footer-link" href="#shop">Phones</a>
+        <a class="footer-link" href="#shop">Laptops</a>
+        <a class="footer-link" href="#shop">Gaming</a>
+        <a class="footer-link" href="#shop">Audio</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <a
+          class="footer-link"
+          href="https://wa.me/2348129720470"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp Us
+        </a>
+
+        <p>Abuja, Nigeria</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Pulse Cart Enterprises. All rights reserved.
+    </div>
+
+  </footer>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+
+    <div class="cart">
+
+      <div class="cart-header">
+        <h2>🛒 Your Cart</h2>
+
+        <button class="close-cart" onclick="closeCart()">×</button>
+      </div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="cart-footer">
+
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotal">₦0</span>
+        </div>
+
+        <button class="checkout" onclick="checkoutWhatsApp()">
+          Order Through WhatsApp
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    /* =========================
+       PRODUCT DATA
+    ========================= */
+
+    const products = [
+      {
+        id: 1,
+        name: "Apple MacBook Pro 14-inch 2023",
+        category: "Laptops",
+        price: 1050000,
+        icon: "💻",
+        description: "Powerful Apple laptop for work and productivity."
+      },
+
+      {
+        id: 2,
+        name: "MacBook Air 13.3-inch 2020",
+        category: "Laptops",
+        price: 612000,
+        icon: "💻",
+        description: "Lightweight Apple laptop with excellent performance."
+      },
+
+      {
+        id: 3,
+        name: "Dell Latitude 7400 2-in-1",
+        category: "Laptops",
+        price: 890000,
+        icon: "💻",
+        description: "Flexible 2-in-1 laptop for everyday productivity."
+      },
+
+      {
+        id: 4,
+        name: "PlayStation 5 Brand New",
+        category: "Gaming",
+        price: 950000,
+        icon: "🎮",
+        description: "Next-generation PlayStation gaming console."
+      },
+
+      {
+        id: 5,
+        name: "Tecno Camon 40 CM5",
+        category: "Phones",
+        price: 319800,
+        icon: "📱",
+        description: "Modern Tecno smartphone with great features."
+      },
+
+      {
+        id: 6,
+        name: "iPhone 15",
+        category: "Phones",
+        price: 750000,
+        icon: "📱",
+        description: "Premium Apple smartphone."
+      },
+
+      {
+        id: 7,
+        name: "Samsung Galaxy S24",
+        category: "Phones",
+        price: 820000,
+        icon: "📱",
+        description: "Flagship Samsung smartphone."
+      },
+
+      {
+        id: 8,
+        name: "iPhone 13",
+        category: "Phones",
+        price: 580000,
+        icon: "📱",
+        description: "Popular Apple smartphone."
+      },
+
+      {
+        id: 9,
+        name: "HP EliteBook",
+        category: "Laptops",
+        price: 650000,
+        icon: "💻",
+        description: "Business-class laptop for everyday use."
+      },
+
+      {
+        id: 10,
+        name: "Wireless Gaming Headset",
+        category: "Audio",
+        price: 85000,
+        icon: "🎧",
+        description: "Immersive audio for gaming and entertainment."
+      },
+
+      {
+        id: 11,
+        name: "Bluetooth Speaker",
+        category: "Audio",
+        price: 65000,
+        icon: "🔊",
+        description: "Portable wireless speaker."
+      },
+
+      {
+        id: 12,
+        name: "AirPods Pro",
+        category: "Audio",
+        price: 250000,
+        icon: "🎧",
+        description: "Wireless earbuds for music and calls."
+      },
+
+      {
+        id: 13,
+        name: "20,000mAh Power Bank",
+        category: "Accessories",
+        price: 45000,
+        icon: "🔋",
+        description: "Portable power for your devices."
+      },
+
+      {
+        id: 14,
+        name: "Fast USB-C Charger",
+        category: "Accessories",
+        price: 25000,
+        icon: "🔌",
+        description: "Fast charging adapter for compatible devices."
+      },
+
+    
